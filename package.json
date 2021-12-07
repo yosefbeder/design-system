@@ -1,0 +1,101 @@
+{
+	"name": "@yosefbeder/design-system",
+	"version": "0.4.4",
+	"author": "yosefbeder",
+	"homepage": "https://yosefbeder.github.io/design-system/",
+	"license": "MIT",
+	"files": [
+		"dist"
+	],
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/yosefbeder/design-system.git"
+	},
+	"engines": {
+		"node": ">=10"
+	},
+	"scripts": {
+		"start": "tsc -w",
+		"copy-files:cjs": "copyfiles -u 1 src/**/*.css dist/cjs",
+		"copy-files:esm": "copyfiles -u 1 src/**/*.css dist/esm",
+		"build:cjs": "tsc --module commonjs --outDir ./dist/cjs && yarn copy-files:cjs",
+		"build:esm": "tsc && yarn copy-files:esm",
+		"build": "yarn build:cjs && yarn build:esm",
+		"size": "size-limit",
+		"analyze": "size-limit --why",
+		"prepublish": "yarn build"
+	},
+	"size-limit": [
+		{
+			"path": "dist/cjs/components/index.js",
+			"limit": "4 KB"
+		},
+		{
+			"path": "./dist/cjs/typography.js",
+			"limit": "2 KB"
+		},
+		{
+			"path": "./dist/cjs/components/Button.js",
+			"limit": "2 KB"
+		},
+		{
+			"path": "./dist/cjs/utils/index.js",
+			"limit": "2 KB"
+		},
+		{
+			"path": "./dist/cjs/utils/with-id.js",
+			"limit": "2 KB"
+		}
+	],
+	"publishConfig": {
+		"access": "public",
+		"registry": "https://registry.npmjs.org"
+	},
+	"peerDependencies": {
+		"@types/styled-components": "^5.1.15",
+		"@types/react": "^17.0.34",
+		"react": "^17.0.2",
+		"react-icons": "^4.3.1",
+		"styled-components": "^5.3.3"
+	},
+	"devDependencies": {
+		"@size-limit/preset-small-lib": "^6.0.4",
+		"@types/react-dom": "^17.0.11",
+		"@types/react": "^17.0.34",
+		"@types/styled-components": "^5.1.15",
+		"copyfiles": "^2.4.1",
+		"react": "^17.0.2",
+		"react-icons": "^4.3.1",
+		"size-limit": "^6.0.4",
+		"styled-components": "^5.3.3",
+		"tslib": "^2.3.1",
+		"typescript": "^4.5.2"
+	},
+	"exports": {
+		"./index.css": "./dist/cjs/index.css",
+		"./typography": "./dist/cjs/typography.js",
+		"./components": "./dist/cjs/components/index.js",
+		"./components/Button": "./dist/cjs/components/Button.js",
+		"./utils": "./dist/cjs/utils/index.js",
+		"./utils/with-id": "./dist/cjs/utils/with-id.js"
+	},
+	"typesVersions": {
+		"*": {
+			"typography": [
+				"./dist/cjs/typography.d.ts"
+			],
+			"components": [
+				"./dist/cjs/components/index.d.ts"
+			],
+			"components/Button": [
+				"./dist/cjs/components/Button.d.ts"
+			],
+			"utils": [
+				"./dist/cjs/utils/index.d.ts"
+			],
+			"utils/with-id": [
+				"./dist/cjs/utils/with-id.d.ts"
+			]
+		}
+	}
+}
