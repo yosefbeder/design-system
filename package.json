@@ -23,7 +23,8 @@
 		"build": "yarn build:cjs && yarn build:esm",
 		"size": "size-limit",
 		"analyze": "size-limit --why",
-		"prepublish": "yarn build"
+		"prepublish": "yarn build",
+		"release": "standard-version"
 	},
 	"size-limit": [
 		{
@@ -52,21 +53,22 @@
 		"registry": "https://registry.npmjs.org"
 	},
 	"peerDependencies": {
-		"@types/styled-components": "^5.1.15",
 		"@types/react": "^17.0.34",
+		"@types/styled-components": "^5.1.15",
 		"react": "^17.0.2",
 		"react-icons": "^4.3.1",
 		"styled-components": "^5.3.3"
 	},
 	"devDependencies": {
 		"@size-limit/preset-small-lib": "^6.0.4",
-		"@types/react-dom": "^17.0.11",
 		"@types/react": "^17.0.34",
+		"@types/react-dom": "^17.0.11",
 		"@types/styled-components": "^5.1.15",
 		"copyfiles": "^2.4.1",
 		"react": "^17.0.2",
 		"react-icons": "^4.3.1",
 		"size-limit": "^6.0.4",
+		"standard-version": "^9.3.2",
 		"styled-components": "^5.3.3",
 		"tslib": "^2.3.1",
 		"typescript": "^4.5.2"
