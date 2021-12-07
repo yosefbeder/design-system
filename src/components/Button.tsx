@@ -6,6 +6,9 @@ interface StyledButtonProps {
 	loading?: boolean;
 }
 
+const getState = (loading?: boolean, disabled?: boolean) =>
+	loading ? 'loading' : disabled ? 'disabled' : 'normal';
+
 const ButtonSharedStyles = css`
 	display: flex;
 	padding: var(--space-sm) var(--space-md);
@@ -22,49 +25,47 @@ export const StyledButtonPrimary = styled.button.attrs<StyledButtonProps>(
 )<StyledButtonProps>`
 	${ButtonSharedStyles}
 
-	${props => {
-		const color = props.loading
-			? 'var(--color-blue-300)'
-			: props.disabled
-			? 'var(--color-gray-400)'
-			: 'var(--color-blue-400)';
+	color: var(--color-white);
+
+	${({ loading, disabled }) => {
+		const state = getState(loading, disabled);
+		let color, hoverColor, activeColor;
+
+		switch (state) {
+			case 'loading':
+				color = 'var(--color-blue-300)';
+				hoverColor = 'var(--color-blue-400)';
+				break;
+			case 'disabled':
+				color = 'var(--color-gray-400)';
+				hoverColor = 'var(--color-gray-500)';
+				break;
+
+			default:
+				color = 'var(--color-blue-400)';
+				hoverColor = 'var(--color-blue-500)';
+				activeColor = 'var(--color-blue-600)';
+		}
 
 		return css`
 			background-color: ${color};
 			border: 2px solid ${color};
+
+			&:hover {
+				background-color: ${hoverColor};
+				border: 2px solid ${hoverColor};
+			}
+
+			${state === 'normal'
+				? css`
+						&:active {
+							background-color: ${activeColor};
+							border: 2px solid ${activeColor};
+						}
+				  `
+				: 'cursor: not-allowed;'}
 		`;
 	}}
-
-	color: var(--color-white);
-
-	&:hover {
-		${props => {
-			const color = props.loading
-				? 'var(--color-blue-400)'
-				: props.disabled
-				? 'var(--color-gray-500)'
-				: 'var(--color-blue-500)';
-
-			return css`
-				background-color: ${color};
-				border-color: ${color};
-			`;
-		}}
-	}
-
-	${props =>
-		!props.loading &&
-		!props.disabled &&
-		css`
-			&:active {
-				background-color: var(--color-blue-600);
-				border-color: var(--color-blue-600);
-			}
-		`}
-
-	&:disabled {
-		cursor: not-allowed;
-	}
 `;
 
 export const StyledButtonSecondary = styled.button.attrs<StyledButtonProps>(
@@ -74,12 +75,24 @@ export const StyledButtonSecondary = styled.button.attrs<StyledButtonProps>(
 )<StyledButtonProps>`
 	${ButtonSharedStyles}
 
-	${props => {
-		const color = props.loading
-			? 'var(--color-blue-300)'
-			: props.disabled
-			? 'var(--color-gray-400)'
-			: 'var(--color-blue-400)';
+	background-color: var(--color-white);
+
+	${({ loading, disabled }) => {
+		const state = getState(loading, disabled);
+
+		let color, activeColor;
+
+		switch (state) {
+			case 'loading':
+				color = 'var(--color-blue-300)';
+				break;
+			case 'disabled':
+				color = 'var(--color-gray-400)';
+				break;
+			default:
+				color = 'var(--color-blue-400)';
+				activeColor = 'var(--color-blue-500)';
+		}
 
 		return css`
 			color: ${color};
@@ -88,27 +101,20 @@ export const StyledButtonSecondary = styled.button.attrs<StyledButtonProps>(
 			&:hover {
 				background-color: ${color};
 			}
+
+			${state === 'normal'
+				? css`
+						&:active {
+							background-color: ${activeColor};
+							border: 2px solid ${activeColor};
+						}
+				  `
+				: 'cursor: not-allowed;'}
 		`;
 	}}
 
-	background-color: var(--color-white);
-
 	&:hover {
 		color: var(--color-white);
-	}
-
-	${props =>
-		!props.loading &&
-		!props.disabled &&
-		css`
-			&:active {
-				background-color: var(--color-blue-500);
-				border-color: var(--color-blue-500);
-			}
-		`}
-
-	&:disabled {
-		cursor: not-allowed;
 	}
 `;
 
@@ -121,31 +127,45 @@ export const StyledButtonTertiary = styled.button.attrs<StyledButtonProps>(
 
 	border: 2px solid transparent;
 
-	&:hover {
-		background-color: var(--color-gray-200);
-		border-color: var(--color-gray-200);
-	}
+	${({ loading, disabled }) => {
+		const state = getState(loading, disabled);
+		let color, hoverColor, activeColor;
 
-	${props =>
-		!props.loading &&
-		!props.disabled &&
-		css`
-			&:active {
-				background-color: var(--color-gray-300);
-				border-color: var(--color-gray-300);
+		switch (state) {
+			case 'loading':
+				color = 'var(--color-gray-100)';
+				hoverColor = 'var(--color-gray-200)';
+				break;
+			case 'disabled':
+				color = 'var(--color-gray-100)';
+				hoverColor = 'var(--color-gray-200)';
+				break;
+			default:
+				hoverColor = 'var(--color-gray-200)';
+				activeColor = 'var(--color-gray-300)';
+		}
+
+		return css`
+			&:hover {
+				background-color: ${hoverColor};
+				border-color: ${hoverColor};
 			}
-		`}
 
-	&:disabled {
-		background-color: var(--color-gray-100);
-		color: var(--color-gray-400);
-		cursor: not-allowed;
-	}
-
-	&:hover:disabled {
-		background-color: var(--color-gray-200);
-		border-color: var(--color-gray-200);
-	}
+			${state === 'normal'
+				? css`
+				&:active {
+					background-color: ${activeColor};
+					border-color: ${activeColor};
+				}
+				&
+			`
+				: css`
+						background-color: ${color};
+						border-color: ${color};
+						cursor: not-allowed;
+				  `}
+		`;
+	}}
 `;
 
 export const PrimaryLoadingSpinner = styled(LoadingSpinner)`
