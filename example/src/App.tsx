@@ -236,7 +236,7 @@ function App() {
 			<ButtonsGroup>
 				{pages.map(page => (
 					<RouterLink key={page.path} to={page.path}>
-						<NavLink isNavigatedTo={location.pathname === page.path}>
+						<NavLink navigatedTo={location.pathname === page.path}>
 							{page.name}
 						</NavLink>
 					</RouterLink>

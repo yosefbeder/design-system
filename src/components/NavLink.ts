@@ -1,7 +1,7 @@
 import styled, { css } from 'styled-components';
 
 interface NavLinkProps {
-	isNavigatedTo?: boolean;
+	navigatedTo?: boolean;
 }
 
 const NavLink = styled.a<NavLinkProps>`
@@ -14,7 +14,7 @@ const NavLink = styled.a<NavLinkProps>`
 	transition: border-color 100ms, background-color 100ms, color 100ms;
 
 	${props =>
-		props.isNavigatedTo
+		props.navigatedTo
 			? css`
 					font-weight: 600;
 					color: var(--color-gray-800);
