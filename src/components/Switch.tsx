@@ -30,7 +30,8 @@ const Input = styled.input.attrs(() => ({
 	transition: background-color 100ms, border-color 100ms;
 	cursor: pointer;
 
-	&:hover {
+	&:hover,
+	&:focus {
 		background-color: var(--color-gray-300);
 		border-color: var(--color-gray-300);
 	}
@@ -40,7 +41,8 @@ const Input = styled.input.attrs(() => ({
 		border-color: var(--color-blue-400);
 	}
 
-	&:checked:hover {
+	&:checked:hover,
+	&:checked:focus {
 		background-color: var(--color-blue-500);
 		border-color: var(--color-blue-500);
 	}
@@ -83,14 +85,16 @@ const Container = styled.div`
 	position: relative;
 `;
 
-const Switch: React.FC<StyledComponentProps<
-	'input',
-	any,
-	{
-		type: 'checkbox';
-	},
-	'type'
->> = ({ children, ...props }) => {
+const Switch: React.FC<
+	StyledComponentProps<
+		'input',
+		any,
+		{
+			type: 'checkbox';
+		},
+		'type'
+	>
+> = ({ children, ...props }) => {
 	return (
 		<Container>
 			<Input {...props} />
