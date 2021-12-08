@@ -26,15 +26,6 @@ const Input = styled.input.attrs(() => ({ type: 'radio' }))`
 	transition: border-color 100ms, background-color 100ms;
 	cursor: pointer;
 
-	&:disabled {
-		cursor: not-allowed;
-		background-color: var(--color-gray-100);
-	}
-
-	&:disabled + ${Icon} {
-		background-color: var(--color-gray-100);
-	}
-
 	&:hover {
 		border-color: var(--color-gray-400);
 	}
@@ -42,6 +33,21 @@ const Input = styled.input.attrs(() => ({ type: 'radio' }))`
 	&:checked {
 		background-color: var(--color-blue-400);
 		border-color: var(--color-blue-400);
+	}
+
+	&:enabled:active,
+	&:focus {
+		border-color: var(--color-blue-400);
+		box-shadow: 0 0 0 2px var(--color-blue-200);
+	}
+
+	&:disabled {
+		cursor: not-allowed;
+		background-color: var(--color-gray-100);
+	}
+
+	&:disabled + ${Icon} {
+		background-color: var(--color-gray-100);
 	}
 
 	&:disabled:checked {
@@ -57,14 +63,16 @@ const Container = styled.div`
 	position: relative;
 `;
 
-const Radio: React.FC<StyledComponentProps<
-	'input',
-	any,
-	{
-		type: 'radio';
-	},
-	'type'
->> = ({ children, ...props }) => {
+const Radio: React.FC<
+	StyledComponentProps<
+		'input',
+		any,
+		{
+			type: 'radio';
+		},
+		'type'
+	>
+> = ({ children, ...props }) => {
 	return (
 		<Container>
 			<Input {...props} />
