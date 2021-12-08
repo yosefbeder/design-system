@@ -1,5 +1,4 @@
-import React from 'react';
-import { Link as RouterLink, useLocation } from 'react-router-dom';
+import React, { useState } from 'react';
 import styled from 'styled-components';
 import '../../src/index.css';
 import {
@@ -89,7 +88,7 @@ const pages = [
 ];
 
 function App() {
-	const location = useLocation();
+	const [navigated, setNavigated] = useState('/');
 
 	return (
 		<Article>
@@ -235,11 +234,14 @@ function App() {
 			<H2WithId>Nav Link</H2WithId>
 			<ButtonsGroup>
 				{pages.map(page => (
-					<RouterLink key={page.path} to={page.path}>
-						<NavLink navigatedTo={location.pathname === page.path}>
-							{page.name}
-						</NavLink>
-					</RouterLink>
+					<NavLink
+						key={page.path}
+						navigatedTo={navigated === page.path}
+						as="button"
+						onClick={() => setNavigated(page.path)}
+					>
+						{page.name}
+					</NavLink>
 				))}
 			</ButtonsGroup>
 			<H2WithId>Icon Button</H2WithId>

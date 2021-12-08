@@ -21,7 +21,8 @@ const NavLink = styled.a<NavLinkProps>`
 			  `
 			: ''}
 
-	&:hover {
+	&:hover,
+	&:focus {
 		background-color: var(--color-gray-200);
 		border-color: var(--color-gray-200);
 	}
