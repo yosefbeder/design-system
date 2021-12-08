@@ -12,26 +12,25 @@ const StyledInput = styled.input<StyledInputProps>`
 
 	font-size: var(--font-sm);
 
-	transition: border-color 100ms;
+	transition: border-color 100ms, box-shadow 100ms;
 
 	&:disabled {
 		background-color: var(--color-gray-100);
 		cursor: not-allowed;
 	}
 
-	&:disabled:hover,
-	&:disabled:active,
-	&:disabled:focus {
-		border-color: var(--color-gray-400);
+	&:disabled:active {
+		box-shadow: 0 0 0 2px var(--color-gray-200);
 	}
 
 	&:hover {
 		border-color: var(--color-gray-400);
 	}
 
-	&:active,
+	&:enabled:active,
 	&:focus {
 		border-color: var(--color-blue-400);
+		box-shadow: 0 0 0 2px var(--color-blue-200);
 	}
 `;
 
