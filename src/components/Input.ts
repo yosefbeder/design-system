@@ -10,8 +10,6 @@ const StyledInput = styled.input<StyledInputProps>`
 	border-radius: var(--rounded-sm);
 	background-color: var(--color-white);
 
-	font-size: var(--font-sm);
-
 	transition: border-color 100ms, box-shadow 100ms;
 
 	&:disabled {
