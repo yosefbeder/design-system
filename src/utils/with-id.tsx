@@ -32,6 +32,7 @@ const withId = (H: StyledComponent<any, any, {}, never>) => {
 	const HWithId: React.FC<{ children: string }> = ({ children }) => {
 		const slug = convertToSlug(children);
 		const [isMouseIn, setIsMouseIn] = useState(false);
+		const [isFocused, setIsFocused] = useState(false);
 
 		return (
 			<RelativeH
@@ -39,7 +40,12 @@ const withId = (H: StyledComponent<any, any, {}, never>) => {
 				onMouseEnter={() => setIsMouseIn(true)}
 				onMouseLeave={() => setIsMouseIn(false)}
 			>
-				<HLink isShown={isMouseIn} href={`#${slug}`}>
+				<HLink
+					isShown={isMouseIn || isFocused}
+					href={`#${slug}`}
+					onFocus={() => setIsFocused(true)}
+					onBlur={() => setIsFocused(false)}
+				>
 					<LinkIcon size=".65em" />
 				</HLink>
 				{children}
