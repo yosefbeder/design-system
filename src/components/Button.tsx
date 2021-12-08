@@ -58,6 +58,11 @@ export const StyledButtonPrimary = styled.button.attrs<StyledButtonProps>(
 
 			${state === 'normal'
 				? css`
+						&:focus {
+							background-color: ${hoverColor};
+							border: 2px solid ${hoverColor};
+						}
+
 						&:active {
 							background-color: ${activeColor};
 							border: 2px solid ${activeColor};
@@ -100,22 +105,24 @@ export const StyledButtonSecondary = styled.button.attrs<StyledButtonProps>(
 
 			&:hover {
 				background-color: ${color};
+				color: var(--color-white);
 			}
 
 			${state === 'normal'
 				? css`
+						&:focus {
+							background-color: ${color};
+							color: var(--color-white);
+						}
+
 						&:active {
 							background-color: ${activeColor};
-							border: 2px solid ${activeColor};
+							border-color: ${activeColor};
 						}
 				  `
 				: 'cursor: not-allowed;'}
 		`;
 	}}
-
-	&:hover {
-		color: var(--color-white);
-	}
 `;
 
 export const StyledButtonTertiary = styled.button.attrs<StyledButtonProps>(
@@ -153,12 +160,16 @@ export const StyledButtonTertiary = styled.button.attrs<StyledButtonProps>(
 
 			${state === 'normal'
 				? css`
-				&:active {
-					background-color: ${activeColor};
-					border-color: ${activeColor};
-				}
-				&
-			`
+						&:focus {
+							background-color: ${hoverColor};
+							border-color: ${hoverColor};
+						}
+
+						&:active {
+							background-color: ${activeColor};
+							border-color: ${activeColor};
+						}
+				  `
 				: css`
 						background-color: ${color};
 						border-color: ${color};
