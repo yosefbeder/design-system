@@ -20,7 +20,7 @@ const Input = styled.input.attrs(() => ({ type: 'checkbox' }))`
 	background-color: var(--color-white);
 	border-radius: var(--rounded-sm);
 	border: 1px solid var(--color-gray-200);
-	transition: border-color 100ms, background-color 100ms;
+	transition: border-color 100ms, background-color 100ms, box-shadow 100ms;
 	cursor: pointer;
 
 	&:disabled {
@@ -36,9 +36,19 @@ const Input = styled.input.attrs(() => ({ type: 'checkbox' }))`
 		border-color: var(--color-gray-400);
 	}
 
+	&:enabled:active,
+	&:focus {
+		border-color: var(--color-blue-400);
+		box-shadow: 0 0 0 2px var(--color-blue-200);
+	}
+
 	&:checked {
 		background-color: var(--color-blue-400);
 		border-color: var(--color-blue-400);
+	}
+
+	&:disabled:active {
+		box-shadow: 0 0 0 2px var(--color-gray-200);
 	}
 
 	&:disabled:checked {
@@ -51,14 +61,16 @@ const Container = styled.div`
 	position: relative;
 `;
 
-const Checkbox: React.FC<StyledComponentProps<
-	'input',
-	any,
-	{
-		type: 'checkbox';
-	},
-	'type'
->> = ({ children, ...props }) => {
+const Checkbox: React.FC<
+	StyledComponentProps<
+		'input',
+		any,
+		{
+			type: 'checkbox';
+		},
+		'type'
+	>
+> = ({ children, ...props }) => {
 	return (
 		<Container>
 			<Input {...props} />
