@@ -82,7 +82,8 @@ export const Link = styled.a`
 	text-decoration: underline;
 	transition: color 100ms;
 
-	&:hover {
+	&:hover,
+	&:focus {
 		color: var(--color-blue-500);
 	}
 
