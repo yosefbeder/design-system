@@ -72,6 +72,7 @@ const Tooltip: React.FC<TooltipProps> = ({
 }) => {
 	const containerRef = useRef<HTMLDivElement>(null);
 	const [isMouseIn, setIsMouseIn] = useState(false);
+	const [isFocused, setIsFocused] = useState(false);
 
 	return (
 		<Container
@@ -82,9 +83,15 @@ const Tooltip: React.FC<TooltipProps> = ({
 			onPointerLeave={() => {
 				setIsMouseIn(false);
 			}}
+			onFocusCapture={() => {
+				setIsFocused(true);
+			}}
+			onBlurCapture={() => {
+				setIsFocused(false);
+			}}
 		>
 			{children}
-			<Component position={position} isShown={isMouseIn}>
+			<Component position={position} isShown={isMouseIn || isFocused}>
 				{content}
 			</Component>
 		</Container>

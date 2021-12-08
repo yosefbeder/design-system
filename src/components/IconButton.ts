@@ -24,6 +24,10 @@ const IconButton = styled.button.attrs<IconButtonProps>(props => ({
 		!props.loading &&
 		!props.disabled &&
 		css`
+			&:focus {
+				background-color: var(--color-gray-200);
+			}
+
 			&:active {
 				background-color: var(--color-gray-300);
 			}
