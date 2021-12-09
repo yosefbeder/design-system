@@ -1,8 +1,9 @@
 import React from 'react';
 import styled, { StyledComponentProps } from 'styled-components';
 import { HiCheck as Check } from 'react-icons/hi';
+import { P1 } from '../typography';
 
-const Icon = styled(Check)`
+export const Icon = styled(Check)`
 	position: absolute;
 	display: block;
 	left: 50%;
@@ -12,11 +13,11 @@ const Icon = styled(Check)`
 	pointer-events: none;
 `;
 
-const Input = styled.input.attrs(() => ({ type: 'checkbox' }))`
+export const Input = styled.input.attrs(() => ({ type: 'checkbox' }))`
 	display: block;
 
-	width: 1.125rem;
-	height: 1.125rem;
+	width: var(--size);
+	height: var(--size);
 	background-color: var(--color-white);
 	border-radius: var(--rounded-sm);
 	border: 1px solid var(--color-gray-200);
@@ -57,8 +58,25 @@ const Input = styled.input.attrs(() => ({ type: 'checkbox' }))`
 	}
 `;
 
-const Container = styled.div`
+export const InputContainer = styled.div`
+	--size: 1.125rem;
+
 	position: relative;
+`;
+
+const Container = styled.div`
+	display: flex;
+	align-items: center;
+
+	margin: var(--space-md) 0;
+
+	& > ${InputContainer} {
+		margin-right: var(--space-md);
+	}
+
+	& > ${P1} {
+		margin: 0;
+	}
 `;
 
 const Checkbox: React.FC<
@@ -69,12 +87,15 @@ const Checkbox: React.FC<
 			type: 'checkbox';
 		},
 		'type'
-	>
-> = ({ children, ...props }) => {
+	> & { label: string }
+> = ({ children, label, className, ...props }) => {
 	return (
-		<Container>
-			<Input {...props} />
-			<Icon />
+		<Container className={className}>
+			<InputContainer>
+				<Input {...props} />
+				<Icon />
+			</InputContainer>
+			<P1>{label}</P1>
 		</Container>
 	);
 };

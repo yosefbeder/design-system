@@ -78,6 +78,8 @@
 		"./typography": "./dist/cjs/typography.js",
 		"./components": "./dist/cjs/components/index.js",
 		"./components/Button": "./dist/cjs/components/Button.js",
+		"./components/Checkbox": "./dist/cjs/components/Checkbox.js",
+		"./components/Switch": "./dist/cjs/components/Switch.js",
 		"./utils": "./dist/cjs/utils/index.js",
 		"./utils/with-id": "./dist/cjs/utils/with-id.js"
 	},
@@ -91,6 +93,12 @@
 			],
 			"components/Button": [
 				"./dist/cjs/components/Button.d.ts"
+			],
+			"components/Checkbox": [
+				"./dist/cjs/components/Checkbox.d.ts"
+			],
+			"components/Switch": [
+				"./dist/cjs/components/Switch.d.ts"
 			],
 			"utils": [
 				"./dist/cjs/utils/index.d.ts"

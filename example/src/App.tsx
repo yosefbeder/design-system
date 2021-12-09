@@ -303,51 +303,24 @@ function App() {
 				<Input type="email" placeholder="Email" />
 			</InputsGroup>
 			<H3WithId>Switch</H3WithId>
-			<SwitchGroup>
-				<Switch id="switch-1" />
-				<P1 as="label" htmlFor="switch-1">
-					I agree to sell my privacy
-				</P1>
-			</SwitchGroup>
-			<SwitchGroup>
-				<Tooltip content="It's not your choice, it's ours" position="left">
-					<Switch id="switch-2" disabled />
-				</Tooltip>
-				<P1 as="label" htmlFor="switch-2">
-					I agree to sell my privacy
-				</P1>
-			</SwitchGroup>
-			<SwitchGroup>
-				<Tooltip content="It's not your choice, it's ours" position="left">
-					<Switch id="switch-3" checked disabled />
-				</Tooltip>
-				<P1 as="label" htmlFor="switch-3">
-					I agree to sell my privacy
-				</P1>
-			</SwitchGroup>
+			<Switch id="switch-1" label="I agree to sell my privacy" />
+			<Switch id="switch-1" label="I agree to sell my privacy" disabled />
+			<Switch
+				id="switch-1"
+				label="I agree to sell my privacy"
+				disabled
+				checked
+			/>
 			<H3WithId>Checkbox</H3WithId>
-			<CheckboxGroup>
-				<Checkbox id="checkbox-1" />
-				<P1 as="label" htmlFor="checkbox-1">
-					I agree to sell my privacy
-				</P1>
-			</CheckboxGroup>
-			<CheckboxGroup>
-				<Tooltip content="It's not your choice, it's ours" position="left">
-					<Checkbox id="checkbox-2" disabled />
-				</Tooltip>
-				<P1 as="label" htmlFor="checkbox-2">
-					I agree to sell my privacy
-				</P1>
-			</CheckboxGroup>
-			<CheckboxGroup>
-				<Tooltip content="It's not your choice, it's ours" position="left">
-					<Checkbox id="checkbox-2" checked disabled />
-				</Tooltip>
-				<P1 as="label" htmlFor="checkbox-2">
-					I agree to sell my privacy
-				</P1>
-			</CheckboxGroup>
+			<Checkbox id="checkbox-1" label="I agree to sell my privacy" />
+			<Checkbox id="checkbox-1" label="I agree to sell my privacy" disabled />
+			<Checkbox
+				id="checkbox-1"
+				label="I agree to sell my privacy"
+				disabled
+				checked
+			/>
+
 			<H3WithId>Radio</H3WithId>
 			<P1>What's your favorite javascript framework?</P1>
 			<RadioGroup>
