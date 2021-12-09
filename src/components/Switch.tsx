@@ -103,7 +103,8 @@ const Container = styled.div`
 	}
 `;
 
-const Switch: React.FC<
+const Switch = React.forwardRef<
+	HTMLInputElement,
 	StyledComponentProps<
 		'input',
 		any,
@@ -112,16 +113,16 @@ const Switch: React.FC<
 		},
 		'type'
 	> & { label: string }
-> = ({ children, label, className, ...props }) => {
+>(({ children, label, className, ...props }, ref) => {
 	return (
 		<Container className={className}>
 			<InputContainer>
-				<Input {...props} />
+				<Input ref={ref} {...props} />
 				<Icon />
 			</InputContainer>
 			<P1>{label}</P1>
 		</Container>
 	);
-};
+});
 
 export default Switch;

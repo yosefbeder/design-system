@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import styled from 'styled-components';
 import '../../src/index.css';
 import {
@@ -26,11 +26,7 @@ import {
 	Checkbox,
 	Radio,
 } from '../../src/components';
-import {
-	PrimaryLoadingSpinner,
-	SecondaryLoadingSpinner,
-	TertiaryLoadingSpinner,
-} from '../../src/components/Button';
+
 import {
 	HiArrowDown as ArrowDown,
 	HiArrowUp as ArrowUp,
@@ -64,7 +60,7 @@ const InputsGroup = styled.div`
 	margin: var(--space-md) 0;
 `;
 
-const SwitchGroup = styled.div`
+const RadioGroup = styled.div`
 	display: flex;
 	align-items: center;
 	gap: var(--space-md);
@@ -75,10 +71,6 @@ const SwitchGroup = styled.div`
 		user-select: none;
 	}
 `;
-
-const CheckboxGroup = styled(SwitchGroup)``;
-
-const RadioGroup = styled(SwitchGroup)``;
 
 const pages = [
 	{ path: '/', name: 'Home' },

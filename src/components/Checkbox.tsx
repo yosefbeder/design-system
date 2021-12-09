@@ -79,7 +79,8 @@ const Container = styled.div`
 	}
 `;
 
-const Checkbox: React.FC<
+const Checkbox = React.forwardRef<
+	HTMLInputElement,
 	StyledComponentProps<
 		'input',
 		any,
@@ -88,16 +89,16 @@ const Checkbox: React.FC<
 		},
 		'type'
 	> & { label: string }
-> = ({ children, label, className, ...props }) => {
+>(({ children, label, className, ...props }, ref) => {
 	return (
 		<Container className={className}>
 			<InputContainer>
-				<Input {...props} />
+				<Input ref={ref} {...props} />
 				<Icon />
 			</InputContainer>
 			<P1>{label}</P1>
 		</Container>
 	);
-};
+});
 
 export default Checkbox;
