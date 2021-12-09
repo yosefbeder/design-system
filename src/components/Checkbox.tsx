@@ -2,6 +2,7 @@ import React from 'react';
 import styled, { StyledComponentProps } from 'styled-components';
 import { HiCheck as Check } from 'react-icons/hi';
 import { P1 } from '../typography';
+import { v4 } from 'uuid';
 
 export const Icon = styled(Check)`
 	position: absolute;
@@ -89,14 +90,18 @@ const Checkbox = React.forwardRef<
 		},
 		'type'
 	> & { label: string }
->(({ children, label, className, ...props }, ref) => {
+>(({ children, label, className, id, ...props }, ref) => {
+	const randomId = v4();
+
 	return (
 		<Container className={className}>
 			<InputContainer>
-				<Input ref={ref} {...props} />
+				<Input ref={ref} id={randomId} {...props} />
 				<Icon />
 			</InputContainer>
-			<P1>{label}</P1>
+			<P1 as="label" htmlFor={randomId}>
+				{label}
+			</P1>
 		</Container>
 	);
 });

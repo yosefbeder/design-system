@@ -64,6 +64,7 @@
 		"@types/react": "^17.0.34",
 		"@types/react-dom": "^17.0.11",
 		"@types/styled-components": "^5.1.15",
+		"@types/uuid": "^8.3.3",
 		"copyfiles": "^2.4.1",
 		"react": "^17.0.2",
 		"react-icons": "^4.3.1",
@@ -107,5 +108,8 @@
 				"./dist/cjs/utils/with-id.d.ts"
 			]
 		}
+	},
+	"dependencies": {
+		"uuid": "^8.3.2"
 	}
 }

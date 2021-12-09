@@ -295,23 +295,13 @@ function App() {
 				<Input type="email" placeholder="Email" />
 			</InputsGroup>
 			<H3WithId>Switch</H3WithId>
-			<Switch id="switch-1" label="I agree to sell my privacy" />
-			<Switch id="switch-1" label="I agree to sell my privacy" disabled />
-			<Switch
-				id="switch-1"
-				label="I agree to sell my privacy"
-				disabled
-				checked
-			/>
+			<Switch label="I agree to sell my privacy" />
+			<Switch label="I agree to sell my privacy" disabled />
+			<Switch label="I agree to sell my privacy" disabled checked />
 			<H3WithId>Checkbox</H3WithId>
-			<Checkbox id="checkbox-1" label="I agree to sell my privacy" />
-			<Checkbox id="checkbox-1" label="I agree to sell my privacy" disabled />
-			<Checkbox
-				id="checkbox-1"
-				label="I agree to sell my privacy"
-				disabled
-				checked
-			/>
+			<Checkbox label="I agree to sell my privacy" />
+			<Checkbox label="I agree to sell my privacy" disabled />
+			<Checkbox label="I agree to sell my privacy" disabled checked />
 
 			<H3WithId>Radio</H3WithId>
 			<P1>What's your favorite javascript framework?</P1>

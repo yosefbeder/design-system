@@ -1,5 +1,6 @@
 import React from 'react';
 import styled, { StyledComponentProps } from 'styled-components';
+import { v4 } from 'uuid';
 import { P1 } from '../typography';
 
 export const Icon = styled.div`
@@ -113,14 +114,18 @@ const Switch = React.forwardRef<
 		},
 		'type'
 	> & { label: string }
->(({ children, label, className, ...props }, ref) => {
+>(({ children, label, className, id, ...props }, ref) => {
+	const randomId = v4();
+
 	return (
 		<Container className={className}>
 			<InputContainer>
-				<Input ref={ref} {...props} />
+				<Input ref={ref} id={randomId} {...props} />
 				<Icon />
 			</InputContainer>
-			<P1>{label}</P1>
+			<P1 as="label" htmlFor={randomId}>
+				{label}
+			</P1>
 		</Container>
 	);
 });
