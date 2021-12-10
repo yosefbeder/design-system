@@ -1,5 +1,7 @@
 import React from 'react';
 import styled, { StyledComponentProps } from 'styled-components';
+import { P1 } from '../typography';
+import { v4 } from 'uuid';
 
 const Icon = styled.div`
 	position: absolute;
@@ -56,14 +58,30 @@ const Input = styled.input.attrs(() => ({ type: 'radio' }))`
 	}
 `;
 
-const Container = styled.div`
+export const InputContainer = styled.div`
 	--padding: var(--space-vsm);
 	--size: 1.125rem;
 
 	position: relative;
 `;
 
-const Radio: React.FC<
+const Container = styled.div`
+	display: flex;
+	align-items: center;
+
+	margin: var(--space-md) 0;
+
+	& > ${InputContainer} {
+		margin-right: var(--space-md);
+	}
+
+	& > ${P1} {
+		margin: 0;
+	}
+`;
+
+const Radio = React.forwardRef<
+	HTMLInputElement,
 	StyledComponentProps<
 		'input',
 		any,
@@ -71,14 +89,21 @@ const Radio: React.FC<
 			type: 'radio';
 		},
 		'type'
-	>
-> = ({ children, ...props }) => {
+	> & { label: string }
+>(({ children, label, className, id, ...props }, ref) => {
+	const randomId = v4();
+
 	return (
-		<Container>
-			<Input {...props} />
-			<Icon />
+		<Container className={className}>
+			<InputContainer>
+				<Input ref={ref} id={randomId} {...props} />
+				<Icon />
+			</InputContainer>
+			<P1 as="label" htmlFor={randomId}>
+				{label}
+			</P1>
 		</Container>
 	);
-};
+});
 
 export default Radio;

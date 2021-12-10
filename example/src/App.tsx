@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import styled from 'styled-components';
 import '../../src/index.css';
 import {
@@ -14,6 +14,7 @@ import {
 	InlineCode,
 	Link,
 	Blockquote,
+	H4,
 } from '../../src/typography';
 import { withId } from '../../src/utils';
 import {
@@ -25,6 +26,7 @@ import {
 	Input,
 	Checkbox,
 	Radio,
+	RadioGroup,
 } from '../../src/components';
 
 import {
@@ -60,18 +62,6 @@ const InputsGroup = styled.div`
 	margin: var(--space-md) 0;
 `;
 
-const RadioGroup = styled.div`
-	display: flex;
-	align-items: center;
-	gap: var(--space-md);
-	margin: var(--space-sm) 0;
-
-	& > ${P1} {
-		margin: 0;
-		user-select: none;
-	}
-`;
-
 const pages = [
 	{ path: '/', name: 'Home' },
 	{ path: '/work', name: 'Work' },
@@ -80,7 +70,13 @@ const pages = [
 ];
 
 function App() {
-	const [navigated, setNavigated] = useState('/');
+	const [favoriteFramework, setFavoriteFramework] = useState('');
+	const [favoriteMobileBrand, setFavoriteMobileBrand] = useState('');
+	const [navigated, setNavigated] = useState('');
+
+	useEffect(() => {
+		console.log(favoriteMobileBrand);
+	}, [favoriteMobileBrand]);
 
 	return (
 		<Article>
@@ -304,48 +300,63 @@ function App() {
 			<Checkbox label="I agree to sell my privacy" disabled checked />
 
 			<H3WithId>Radio</H3WithId>
+			<H4>Manual (with Radio)</H4>
 			<P1>What's your favorite javascript framework?</P1>
-			<RadioGroup>
-				<Radio name="favorite-framework" value="react" id="react" />
-				<P1 as="label" htmlFor="react">
-					React
-				</P1>
-			</RadioGroup>
-			<RadioGroup>
-				<Radio name="favorite-framework" value="vue" id="vue" />
-				<P1 as="label" htmlFor="vue">
-					Vue
-				</P1>
-			</RadioGroup>
-			<RadioGroup>
-				<Radio name="favorite-framework" value="angular" id="angular" />
-				<P1 as="label" htmlFor="angular">
-					Angular
-				</P1>
-			</RadioGroup>
-			<RadioGroup>
-				<Radio name="favorite-framework" value="svelte" id="svelte" />
-				<P1 as="label" htmlFor="svelte">
-					Svelte
-				</P1>
-			</RadioGroup>
-			<RadioGroup>
-				<Tooltip
-					content="Is Next.js even a standalone framework?"
-					position="left"
-				>
-					<Radio name="favorite-framework" value="next" id="next" disabled />
-				</Tooltip>
-				<P1 as="label" htmlFor="next">
-					Next.js
-				</P1>
-			</RadioGroup>
-			<RadioGroup>
-				<Radio name="favorite-framework" value="blitz" id="blitz" />
-				<P1 as="label" htmlFor="blitz">
-					Blitz.js
-				</P1>
-			</RadioGroup>
+			<div
+				role="radiogroup"
+				onChange={e =>
+					setFavoriteFramework((e.target as HTMLInputElement).value)
+				}
+			>
+				<Radio
+					name="favorite-framework"
+					defaultChecked={'react' === favoriteFramework}
+					label="React"
+					value="react"
+				/>
+				<Radio
+					name="favorite-framework"
+					defaultChecked={'vue' === favoriteFramework}
+					label="Vue"
+					value="vue"
+				/>
+				<Radio
+					name="favorite-framework"
+					defaultChecked={'angular' === favoriteFramework}
+					label="Angular"
+					value="angular"
+				/>
+				<Radio
+					name="favorite-framework"
+					defaultChecked={'svelte' === favoriteFramework}
+					label="Svelte"
+					value="svelte"
+				/>
+				<Radio
+					name="favorite-framework"
+					defaultChecked={'next' === favoriteFramework}
+					label="Next.js"
+					value="next"
+				/>
+				<Radio
+					name="favorite-framework"
+					defaultChecked={'blitz' === favoriteFramework}
+					label="Blitz.js"
+					value="blitz"
+				/>
+			</div>
+			<H4>Automatic (with RadioGroup)</H4>
+			<P1>What's your favorite mobile brand?</P1>
+			<RadioGroup
+				options={[
+					{ label: 'Apple', value: 'apple' },
+					{ label: 'Samsung', value: 'samsung' },
+					{ label: 'Huawie', value: 'huawie' },
+					{ label: 'Xiaomi', value: 'xiaomi' },
+				]}
+				value={favoriteMobileBrand}
+				onChange={value => setFavoriteMobileBrand(value)}
+			/>
 		</Article>
 	);
 }
