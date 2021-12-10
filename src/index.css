@@ -36,6 +36,10 @@ ul {
 	padding: 0;
 }
 
+pre {
+	white-space: pre;
+}
+
 :root {
 	/* COLORS */
 
