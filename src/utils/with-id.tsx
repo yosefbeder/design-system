@@ -29,7 +29,10 @@ const withId = (H: StyledComponent<any, any, {}, never>) => {
 		position: relative;
 	`;
 
-	const HWithId: React.FC<{ children: string }> = ({ children }) => {
+	const HWithId: React.FC<{ children: string; resetMargin?: boolean }> = ({
+		children,
+		resetMargin,
+	}) => {
 		const slug = convertToSlug(children);
 		const [isMouseIn, setIsMouseIn] = useState(false);
 		const [isFocused, setIsFocused] = useState(false);
@@ -37,6 +40,7 @@ const withId = (H: StyledComponent<any, any, {}, never>) => {
 		return (
 			<RelativeH
 				id={slug}
+				resetMargin={resetMargin}
 				onMouseEnter={() => setIsMouseIn(true)}
 				onMouseLeave={() => setIsMouseIn(false)}
 			>

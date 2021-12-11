@@ -1,5 +1,17 @@
 import styled, { css } from 'styled-components';
 
+type SizeType = 'sm' | 'md' | 'lg';
+
+interface MarginProps {
+	size?: SizeType;
+	resetMargin?: boolean;
+}
+
+const margin = (size: SizeType = 'md') => css<MarginProps>`
+	margin: ${({ resetMargin }) =>
+		`${resetMargin ? '0' : `var(--space-${size}) 0`}`};
+`;
+
 const HSharedStyles = css`
 	font-family: var(--font-sans-serif);
 	line-height: 1.25;
@@ -9,42 +21,42 @@ const HSharedStyles = css`
 
 export const H1 = styled.h1`
 	${HSharedStyles}
-	margin: var(--space-lg) 0;
+	${margin('lg')}
 	font-size: var(--font-2xl);
 `;
 
 export const H2 = styled.h2`
 	${HSharedStyles}
-	margin: var(--space-lg) 0;
+	${margin('lg')}
 	font-size: var(--font-xl);
 `;
 
 export const H3 = styled.h3`
 	${HSharedStyles}
-	margin: var(--space-md) 0;
+	${margin()}
 	font-size: var(--font-lg);
 `;
 
 export const H4 = styled.h4`
 	${HSharedStyles}
-	margin: var(--space-md) 0;
+	${margin()}
 	font-size: var(--font-md);
 `;
 
 export const H5 = styled.h5`
 	${HSharedStyles}
-	margin: var(--space-md) 0;
+	${margin()}
 	font-size: var(--font-base);
 `;
 
 export const H6 = styled.h6`
 	${HSharedStyles}
-	margin: var(--space-md) 0;
+	${margin()}
 	font-size: var(--font-sm);
 `;
 
 const PSharedStyles = css`
-	margin: var(--space-md) 0;
+	${margin()}
 	line-height: 1.35;
 	max-width: 60ch;
 `;
@@ -61,7 +73,8 @@ export const P2 = styled.p`
 `;
 
 const LSharedStyles = css`
-	margin: var(--space-md) 0 var(--space-md) var(--space-xl);
+	${margin()};
+	margin-left: var(--space-xl);
 	line-height: 1.5;
 
 	& ${P1}, & ${P2} {
@@ -117,6 +130,7 @@ export const Blockquote = styled.blockquote`
 
 	display: flex;
 	background-color: var(--color-blue-100);
+	${margin()}
 	padding: var(--space-lg) var(--space-3xl);
 	border-radius: var(--rounded-sm);
 	quotes: '“' '”';
