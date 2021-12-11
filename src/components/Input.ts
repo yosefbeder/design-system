@@ -1,8 +1,6 @@
 import styled from 'styled-components';
 
-interface StyledInputProps {}
-
-const StyledInput = styled.input<StyledInputProps>`
+const Input = styled.input`
 	width: 100%;
 	min-width: 10rem;
 	padding: var(--space-sm) var(--space-md);
@@ -32,4 +30,4 @@ const StyledInput = styled.input<StyledInputProps>`
 	}
 `;
 
-export default StyledInput;
+export default Input;
