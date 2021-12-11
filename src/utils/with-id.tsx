@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import styled, { StyledComponent } from 'styled-components';
-import { HiLink as LinkIcon } from 'react-icons/hi';
+import { Link as LinkIcon } from '../icons';
 
 export const convertToSlug = (text: string) =>
 	String(text)

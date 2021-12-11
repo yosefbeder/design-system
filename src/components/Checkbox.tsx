@@ -1,10 +1,10 @@
 import React from 'react';
 import styled, { StyledComponentProps } from 'styled-components';
-import { HiCheck as Check } from 'react-icons/hi';
+import { Check as CheckIcon } from '../icons';
 import { P1 } from '../typography';
 import { v4 } from 'uuid';
 
-export const Icon = styled(Check)`
+export const Icon = styled(CheckIcon)`
 	position: absolute;
 	display: block;
 	left: 50%;
@@ -97,7 +97,7 @@ const Checkbox = React.forwardRef<
 		<Container className={className}>
 			<InputContainer>
 				<Input ref={ref} id={randomId} {...props} />
-				<Icon />
+				<Icon size={16} />
 			</InputContainer>
 			<P1 as="label" htmlFor={randomId}>
 				{label}

@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import styled from 'styled-components';
 import '../../src/index.css';
 import {
@@ -72,7 +72,7 @@ const pages = [
 function App() {
 	const [favoriteFramework, setFavoriteFramework] = useState('');
 	const [favoriteMobileBrand, setFavoriteMobileBrand] = useState('');
-	const [navigated, setNavigated] = useState('');
+	const [navigated, setNavigated] = useState('/');
 
 	useEffect(() => {
 		console.log(favoriteMobileBrand);
