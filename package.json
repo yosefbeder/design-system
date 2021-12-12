@@ -74,11 +74,33 @@
 	},
 	"exports": {
 		"./index.css": "./dist/cjs/index.css",
+		"./colors/amber.css": "./dist/cjs/colors/amber.css",
+		"./colors/blue.css": "./dist/cjs/colors/blue.css",
+		"./colors/cyan.css": "./dist/cjs/colors/cyan.css",
+		"./colors/emerald.css": "./dist/cjs/colors/emerald.css",
+		"./colors/fuchsia.css": "./dist/cjs/colors/fuchsia.css",
+		"./colors/green.css": "./dist/cjs/colors/green.css",
+		"./colors/indigo.css": "./dist/cjs/colors/indigo.css",
+		"./colors/lime.css": "./dist/cjs/colors/lime.css",
+		"./colors/neutral.css": "./dist/cjs/colors/neutral.css",
+		"./colors/orange.css": "./dist/cjs/colors/orange.css",
+		"./colors/pink.css": "./dist/cjs/colors/pink.css",
+		"./colors/purple.css": "./dist/cjs/colors/purple.css",
+		"./colors/red.css": "./dist/cjs/colors/red.css",
+		"./colors/rose.css": "./dist/cjs/colors/rose.css",
+		"./colors/sky.css": "./dist/cjs/colors/sky.css",
+		"./colors/slate.css": "./dist/cjs/colors/slate.css",
+		"./colors/stone.css": "./dist/cjs/colors/stone.css",
+		"./colors/teal.css": "./dist/cjs/colors/teal.css",
+		"./colors/violet.css": "./dist/cjs/colors/violet.css",
+		"./colors/yellow.css": "./dist/cjs/colors/yellow.css",
+		"./colors/zinc.css": "./dist/cjs/colors/zinc.css",
 		"./typography": "./dist/cjs/typography.js",
 		"./components": "./dist/cjs/components/index.js",
 		"./components/Button": "./dist/cjs/components/Button.js",
 		"./components/Checkbox": "./dist/cjs/components/Checkbox.js",
 		"./components/Switch": "./dist/cjs/components/Switch.js",
+		"./constants": "./dist/cjs/constants/index.js",
 		"./utils": "./dist/cjs/utils/index.js",
 		"./utils/with-id": "./dist/cjs/utils/with-id.js"
 	},
@@ -98,6 +120,9 @@
 			],
 			"components/Switch": [
 				"./dist/cjs/components/Switch.d.ts"
+			],
+			"constants": [
+				"./dist/cjs/constants/index.d.ts"
 			],
 			"utils": [
 				"./dist/cjs/utils/index.d.ts"
