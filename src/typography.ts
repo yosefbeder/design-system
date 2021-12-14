@@ -1,19 +1,17 @@
 import styled, { css } from 'styled-components';
 
-type SizeType = 'sm' | 'md' | 'lg';
-
 interface MarginProps {
-	size?: SizeType;
+	size?: string;
 	resetMargin?: boolean;
 }
 
-const margin = (size: SizeType = 'md') => css<MarginProps>`
+const margin = (size: string = '2') => css<MarginProps>`
 	margin: ${({ resetMargin }) =>
 		`${resetMargin ? '0' : `var(--space-${size}) 0`}`};
 `;
 
 const HSharedStyles = css`
-	font-family: var(--font-sans-serif);
+	font-family: var(--font-sans);
 	line-height: 1.25;
 	font-weight: 900;
 	color: var(--color-gray-900);
@@ -21,49 +19,48 @@ const HSharedStyles = css`
 
 export const H1 = styled.h1`
 	${HSharedStyles}
-	${margin('lg')}
-	font-size: var(--font-2xl);
+	${margin('4')}
+	font-size: var(--font-4xl);
 `;
 
 export const H2 = styled.h2`
 	${HSharedStyles}
-	${margin('lg')}
-	font-size: var(--font-xl);
+	${margin('4')}
+	font-size: var(--font-3xl);
 `;
 
 export const H3 = styled.h3`
 	${HSharedStyles}
 	${margin()}
-	font-size: var(--font-lg);
+	font-size: var(--font-2xl);
 `;
 
 export const H4 = styled.h4`
 	${HSharedStyles}
 	${margin()}
-	font-size: var(--font-md);
+	font-size: var(--font-xl);
 `;
 
 export const H5 = styled.h5`
 	${HSharedStyles}
 	${margin()}
-	font-size: var(--font-base);
+	font-size: var(--font-lg);
 `;
 
 export const H6 = styled.h6`
 	${HSharedStyles}
 	${margin()}
-	font-size: var(--font-sm);
+	font-size: var(--font-md);
 `;
 
 const PSharedStyles = css`
 	${margin()}
-	line-height: 1.35;
+	line-height: 1.5;
 	max-width: 60ch;
 `;
 
 export const P1 = styled.p`
 	${PSharedStyles}
-	font-size: var(--font-base);
 `;
 
 export const P2 = styled.p`
@@ -74,7 +71,7 @@ export const P2 = styled.p`
 
 const LSharedStyles = css`
 	${margin()};
-	margin-left: var(--space-xl);
+	margin-left: var(--space-8);
 	line-height: 1.5;
 
 	& ${P1}, & ${P2} {
@@ -117,7 +114,7 @@ export const Italic = styled.em`
 
 export const InlineCode = styled.code`
 	background-color: var(--color-blue-200);
-	font-family: var(--font-monospace);
+	font-family: var(--font-mono);
 
 	&::before,
 	&::after {
@@ -131,8 +128,8 @@ export const Blockquote = styled.blockquote`
 	display: flex;
 	background-color: var(--color-blue-100);
 	${margin()}
-	padding: var(--space-lg) var(--space-3xl);
-	border-radius: var(--rounded-sm);
+	padding: var(--space-3-5) var(--space-10);
+	border-radius: var(--rounded);
 	quotes: '“' '”';
 
 	color: var(--color-gray-800);
@@ -144,14 +141,14 @@ export const Blockquote = styled.blockquote`
 		max-width: 100%;
 	}
 
-	::before {
+	&::before {
 		content: open-quote;
 		color: var(--color-blue-200);
 		position: absolute;
-		top: -1.15rem;
-		left: -0.75rem;
-		font-family: var(--font-monospace);
-		font-size: var(--font-4xl);
+		top: calc(var(--space-5) * -1);
+		left: calc(var(--space-2-5) * -1);
+		font-family: var(--font-mono);
+		font-size: var(--font-8xl);
 		pointer-events: none;
 	}
 `;

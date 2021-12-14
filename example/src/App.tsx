@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
 import styled from 'styled-components';
 import '../../src/index.css';
+import '../../src/colors/blue.css';
 import {
 	H1,
 	H2,
