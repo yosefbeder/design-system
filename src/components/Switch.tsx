@@ -50,24 +50,24 @@ export const Input = styled.input.attrs(() => ({
 	}
 
 	&:disabled {
-		background-color: var(--color-gray-200);
-		border-color: var(--color-gray-200);
+		background-color: var(--color-gray-300);
+		border-color: var(--color-gray-300);
 		cursor: not-allowed;
 	}
 
 	&:disabled:hover {
-		background-color: var(--color-gray-300);
-		border-color: var(--color-gray-300);
+		background-color: var(--color-gray-400);
+		border-color: var(--color-gray-400);
 	}
 
 	&:disabled:checked {
-		background-color: var(--color-gray-300);
-		border-color: var(--color-gray-300);
+		background-color: var(--color-gray-400);
+		border-color: var(--color-gray-400);
 	}
 
 	&:disabled:checked:hover {
-		background-color: var(--color-gray-400);
-		border-color: var(--color-gray-400);
+		background-color: var(--color-gray-500);
+		border-color: var(--color-gray-500);
 	}
 
 	&:checked + ${Icon} {
