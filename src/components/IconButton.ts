@@ -14,7 +14,7 @@ const IconButton = styled.button.attrs<IconButtonProps>(props => ({
 	width: 2.25rem;
 	height: 2.25rem;
 	border: 2px solid transparent;
-	border-radius: var(--rounded-sm);
+	border-radius: var(--rounded);
 
 	&:hover {
 		background-color: var(--color-gray-200);

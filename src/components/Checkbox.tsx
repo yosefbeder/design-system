@@ -20,7 +20,7 @@ export const Input = styled.input.attrs(() => ({ type: 'checkbox' }))`
 	width: var(--size);
 	height: var(--size);
 	background-color: var(--color-white);
-	border-radius: var(--rounded-sm);
+	border-radius: var(--rounded);
 	border: 1px solid var(--color-gray-200);
 	transition: border-color 100ms, background-color 100ms, box-shadow 100ms;
 	cursor: pointer;
@@ -69,10 +69,10 @@ const Container = styled.div`
 	display: flex;
 	align-items: center;
 
-	margin: var(--space-md) 0;
+	margin: var(--space-2) 0;
 
 	& > ${InputContainer} {
-		margin-right: var(--space-md);
+		margin-right: var(--space-2);
 	}
 
 	& > ${P1} {

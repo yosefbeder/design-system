@@ -81,7 +81,7 @@ export const Input = styled.input.attrs(() => ({
 
 export const InputContainer = styled.div`
 	--size: 1.125rem;
-	--padding: var(--space-vsm);
+	--padding: var(--space-1);
 
 	--width: calc(var(--size) * 2);
 	--height: var(--size);
@@ -93,10 +93,10 @@ const Container = styled.div`
 	display: flex;
 	align-items: center;
 
-	margin: var(--space-md) 0;
+	margin: var(--space-2) 0;
 
 	& > ${InputContainer} {
-		margin-right: var(--space-md);
+		margin-right: var(--space-2);
 	}
 
 	& > ${P1} {

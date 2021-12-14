@@ -11,8 +11,8 @@ const getState = (loading?: boolean, disabled?: boolean) =>
 
 const ButtonSharedStyles = css`
 	display: flex;
-	padding: var(--space-sm) var(--space-md);
-	border-radius: var(--rounded-sm);
+	padding: var(--space-1) var(--space-2);
+	border-radius: var(--rounded);
 	user-select: none;
 
 	transition: border-color 100ms, background-color 100ms, color 100ms;

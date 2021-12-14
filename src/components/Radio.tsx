@@ -59,7 +59,7 @@ const Input = styled.input.attrs(() => ({ type: 'radio' }))`
 `;
 
 export const InputContainer = styled.div`
-	--padding: var(--space-vsm);
+	--padding: var(--space-1);
 	--size: 1.125rem;
 
 	position: relative;
@@ -69,10 +69,10 @@ const Container = styled.div`
 	display: flex;
 	align-items: center;
 
-	margin: var(--space-md) 0;
+	margin: var(--space-2) 0;
 
 	& > ${InputContainer} {
-		margin-right: var(--space-md);
+		margin-right: var(--space-2);
 	}
 
 	& > ${P1} {

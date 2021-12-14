@@ -20,7 +20,7 @@ const Component = styled(P2)<ComponentProps>`
 	${({ position }) => {
 		if (position === 'top')
 			return css`
-				bottom: calc(100% + var(--space-sm));
+				bottom: calc(100% + var(--space-1));
 				left: 50%;
 				transform: translateX(-50%);
 			`;
@@ -29,25 +29,25 @@ const Component = styled(P2)<ComponentProps>`
 			return css`
 				top: 50%;
 				transform: translateY(-50%);
-				right: calc(100% + var(--space-sm));
+				right: calc(100% + var(--space-1));
 			`;
 
 		if (position === 'right')
 			return css`
 				top: 50%;
 				transform: translateY(-50%);
-				left: calc(100% + var(--space-sm));
+				left: calc(100% + var(--space-1));
 			`;
 
 		return css`
-			top: calc(100% + var(--space-sm));
+			top: calc(100% + var(--space-1));
 			left: 50%;
 			transform: translateX(-50%);
 		`;
 	}}
 	margin: 0;
-	padding: var(--space-sm) var(--space-md);
-	border-radius: var(--rounded-sm);
+	padding: var(--space-1) var(--space-2);
+	border-radius: var(--rounded);
 	background-color: var(--color-gray-600);
 
 	pointer-events: none;

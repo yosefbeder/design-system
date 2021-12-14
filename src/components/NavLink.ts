@@ -6,9 +6,9 @@ interface NavLinkProps {
 
 const NavLink = styled.a<NavLinkProps>`
 	display: inline-block;
-	padding: var(--space-sm) var(--space-md);
+	padding: var(--space-1) var(--space-2);
 	border: 2px solid transparent;
-	border-radius: var(--rounded-sm);
+	border-radius: var(--rounded);
 
 	user-select: none;
 	transition: border-color 100ms, background-color 100ms, color 100ms;

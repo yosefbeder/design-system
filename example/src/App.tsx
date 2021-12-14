@@ -47,20 +47,20 @@ const Article = styled.article`
 	min-height: 100vh;
 	margin: 0 auto;
 	padding: 0.05px;
-	padding-bottom: var(--space-3xl);
+	padding-bottom: var(--space-8);
 `;
 
 const ButtonsGroup = styled.div`
 	display: flex;
-	gap: var(--space-sm);
-	margin: var(--space-md) 0;
+	gap: var(--space-1);
+	margin: var(--space-2) 0;
 `;
 
 const InputsGroup = styled.div`
 	display: flex;
-	gap: var(--space-sm);
-	max-width: calc(30rem + var(--space-sm));
-	margin: var(--space-md) 0;
+	gap: var(--space-1);
+	max-width: calc(30rem + var(--space-1));
+	margin: var(--space-2) 0;
 `;
 
 const pages = [

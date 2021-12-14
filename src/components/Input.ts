@@ -3,9 +3,9 @@ import styled from 'styled-components';
 const Input = styled.input`
 	width: 100%;
 	min-width: 10rem;
-	padding: var(--space-sm) var(--space-md);
+	padding: var(--space-1) var(--space-2);
 	border: 1px solid var(--color-gray-200);
-	border-radius: var(--rounded-sm);
+	border-radius: var(--rounded);
 	background-color: var(--color-white);
 
 	transition: border-color 100ms, box-shadow 100ms;
