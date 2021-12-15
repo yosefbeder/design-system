@@ -39,14 +39,14 @@ export const Input = styled.input.attrs(() => ({
 	}
 
 	&:checked {
-		background-color: var(--color-blue-400);
-		border-color: var(--color-blue-400);
+		background-color: var(--color-${props => props.theme.main}-400);
+		border-color: var(--color-${props => props.theme.main}-400);
 	}
 
 	&:checked:hover,
 	&:checked:focus {
-		background-color: var(--color-blue-500);
-		border-color: var(--color-blue-500);
+		background-color: var(--color-${props => props.theme.main}-500);
+		border-color: var(--color-${props => props.theme.main}-500);
 	}
 
 	&:disabled {
@@ -78,6 +78,12 @@ export const Input = styled.input.attrs(() => ({
 		background-color: var(--color-gray-100);
 	}
 `;
+
+Input.defaultProps = {
+	theme: {
+		main: 'blue',
+	},
+};
 
 export const InputContainer = styled.div`
 	--size: 1.125rem;

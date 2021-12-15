@@ -88,19 +88,25 @@ export const Ol = styled.ol`
 `;
 
 export const Link = styled.a`
-	color: var(--color-blue-400);
+	color: var(--color-${props => props.theme.main}-400);
 	text-decoration: underline;
 	transition: color 100ms;
 
 	&:hover,
 	&:focus {
-		color: var(--color-blue-500);
+		color: var(--color-${props => props.theme.main}-500);
 	}
 
 	&:active {
-		color: var(--color-blue-600);
+		color: var(--color-${props => props.theme.main}-600);
 	}
 `;
+
+Link.defaultProps = {
+	theme: {
+		main: 'blue',
+	},
+};
 
 export const Strong = styled.strong`
 	font-weight: 600;
@@ -113,7 +119,7 @@ export const Italic = styled.em`
 `;
 
 export const InlineCode = styled.code`
-	background-color: var(--color-blue-200);
+	background-color: var(--color-${props => props.theme.main}-200);
 	font-family: var(--font-mono);
 
 	&::before,
@@ -122,11 +128,17 @@ export const InlineCode = styled.code`
 	}
 `;
 
+InlineCode.defaultProps = {
+	theme: {
+		main: 'blue',
+	},
+};
+
 export const Blockquote = styled.blockquote`
 	position: relative;
 
 	display: flex;
-	background-color: var(--color-blue-100);
+	background-color: var(--color-${props => props.theme.main}-100);
 	${margin()}
 	padding: var(--space-3-5) var(--space-10);
 	border-radius: var(--rounded);
@@ -143,7 +155,7 @@ export const Blockquote = styled.blockquote`
 
 	&::before {
 		content: open-quote;
-		color: var(--color-blue-200);
+		color: var(--color-${props => props.theme.main}-200);
 		position: absolute;
 		top: calc(var(--space-5) * -1);
 		left: calc(var(--space-2-5) * -1);
@@ -152,3 +164,9 @@ export const Blockquote = styled.blockquote`
 		pointer-events: none;
 	}
 `;
+
+Blockquote.defaultProps = {
+	theme: {
+		main: 'blue',
+	},
+};

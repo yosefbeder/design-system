@@ -27,14 +27,14 @@ export const StyledButtonPrimary = styled.button.attrs<StyledButtonProps>(
 
 	color: var(--color-white);
 
-	${({ loading, disabled }) => {
+	${({ loading, disabled, theme }) => {
 		const state = getState(loading, disabled);
 		let color, hoverColor, activeColor;
 
 		switch (state) {
 			case 'loading':
-				color = 'var(--color-blue-300)';
-				hoverColor = 'var(--color-blue-400)';
+				color = `var(--color-${theme.main}-300)`;
+				hoverColor = `var(--color-${theme.main}-400)`;
 				break;
 			case 'disabled':
 				color = 'var(--color-gray-400)';
@@ -42,9 +42,9 @@ export const StyledButtonPrimary = styled.button.attrs<StyledButtonProps>(
 				break;
 
 			default:
-				color = 'var(--color-blue-400)';
-				hoverColor = 'var(--color-blue-500)';
-				activeColor = 'var(--color-blue-600)';
+				color = `var(--color-${theme.main}-400)`;
+				hoverColor = `var(--color-${theme.main}-500)`;
+				activeColor = `var(--color-${theme.main}-600)`;
 		}
 
 		return css`
@@ -73,6 +73,12 @@ export const StyledButtonPrimary = styled.button.attrs<StyledButtonProps>(
 	}}
 `;
 
+StyledButtonPrimary.defaultProps = {
+	theme: {
+		main: 'blue',
+	},
+};
+
 export const StyledButtonSecondary = styled.button.attrs<StyledButtonProps>(
 	props => ({
 		disabled: props.loading || props.disabled,
@@ -82,21 +88,21 @@ export const StyledButtonSecondary = styled.button.attrs<StyledButtonProps>(
 
 	background-color: var(--color-white);
 
-	${({ loading, disabled }) => {
+	${({ loading, disabled, theme }) => {
 		const state = getState(loading, disabled);
 
 		let color, activeColor;
 
 		switch (state) {
 			case 'loading':
-				color = 'var(--color-blue-300)';
+				color = `var(--color-${theme.main}-300)`;
 				break;
 			case 'disabled':
 				color = 'var(--color-gray-400)';
 				break;
 			default:
-				color = 'var(--color-blue-400)';
-				activeColor = 'var(--color-blue-500)';
+				color = `var(--color-${theme.main}-400)`;
+				activeColor = `var(--color-${theme.main}-500)`;
 		}
 
 		return css`
@@ -124,6 +130,12 @@ export const StyledButtonSecondary = styled.button.attrs<StyledButtonProps>(
 		`;
 	}}
 `;
+
+StyledButtonSecondary.defaultProps = {
+	theme: {
+		main: 'blue',
+	},
+};
 
 export const StyledButtonTertiary = styled.button.attrs<StyledButtonProps>(
 	props => ({
@@ -180,14 +192,22 @@ export const StyledButtonTertiary = styled.button.attrs<StyledButtonProps>(
 `;
 
 export const PrimaryLoadingSpinner = styled(LoadingSpinner)`
-	border: 2px solid var(--color-blue-200);
+	border: 2px solid var(--color-${props => props.theme.main}-200);
 	border-left: 2px solid var(--color-white);
 `;
 
+PrimaryLoadingSpinner.defaultProps = {
+	theme: { main: 'blue' },
+};
+
 export const SecondaryLoadingSpinner = styled(LoadingSpinner)`
-	border: 2px solid var(--color-blue-200);
-	border-left: 2px solid var(--color-blue-400);
+	border: 2px solid var(--color-${props => props.theme.main}-200);
+	border-left: 2px solid var(--color-${props => props.theme.main}-400);
 `;
+
+SecondaryLoadingSpinner.defaultProps = {
+	theme: { main: 'blue' },
+};
 
 export const TertiaryLoadingSpinner = styled(LoadingSpinner)`
 	border: 2px solid var(--color-white);

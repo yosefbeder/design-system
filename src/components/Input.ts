@@ -25,9 +25,15 @@ const Input = styled.input`
 
 	&:enabled:active,
 	&:focus {
-		border-color: var(--color-blue-400);
-		box-shadow: 0 0 0 2px var(--color-blue-200);
+		border-color: var(--color-${props => props.theme.main}-400);
+		box-shadow: 0 0 0 2px var(--color-${props => props.theme.main}-200);
 	}
 `;
+
+Input.defaultProps = {
+	theme: {
+		main: 'blue',
+	},
+};
 
 export default Input;

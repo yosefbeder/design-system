@@ -33,14 +33,14 @@ const Input = styled.input.attrs(() => ({ type: 'radio' }))`
 	}
 
 	&:checked {
-		background-color: var(--color-blue-400);
-		border-color: var(--color-blue-400);
+		background-color: var(--color-${props => props.theme.main}-400);
+		border-color: var(--color-${props => props.theme.main}-400);
 	}
 
 	&:enabled:active,
 	&:focus {
-		border-color: var(--color-blue-400);
-		box-shadow: 0 0 0 2px var(--color-blue-200);
+		border-color: var(--color-${props => props.theme.main}-400);
+		box-shadow: 0 0 0 2px var(--color-${props => props.theme.main}-200);
 	}
 
 	&:disabled {
@@ -57,6 +57,12 @@ const Input = styled.input.attrs(() => ({ type: 'radio' }))`
 		border-color: var(--color-gray-400);
 	}
 `;
+
+Input.defaultProps = {
+	theme: {
+		main: 'blue',
+	},
+};
 
 export const InputContainer = styled.div`
 	--padding: var(--space-1);
