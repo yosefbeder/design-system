@@ -32,19 +32,14 @@ export const StyledButtonPrimary = styled.button.attrs<StyledButtonProps>(
 		let color, hoverColor, activeColor;
 
 		switch (state) {
-			case 'loading':
-				color = `var(--color-${theme.main}-300)`;
-				hoverColor = `var(--color-${theme.main}-400)`;
-				break;
-			case 'disabled':
-				color = 'var(--color-gray-400)';
-				hoverColor = 'var(--color-gray-500)';
-				break;
-
-			default:
+			case 'normal':
 				color = `var(--color-${theme.main}-400)`;
 				hoverColor = `var(--color-${theme.main}-500)`;
 				activeColor = `var(--color-${theme.main}-600)`;
+				break;
+			default:
+				color = `var(--color-${theme.main}-300)`;
+				hoverColor = `var(--color-${theme.main}-400)`;
 		}
 
 		return css`
@@ -94,15 +89,12 @@ export const StyledButtonSecondary = styled.button.attrs<StyledButtonProps>(
 		let color, activeColor;
 
 		switch (state) {
-			case 'loading':
-				color = `var(--color-${theme.main}-300)`;
-				break;
-			case 'disabled':
-				color = 'var(--color-gray-400)';
-				break;
-			default:
+			case 'normal':
 				color = `var(--color-${theme.main}-400)`;
 				activeColor = `var(--color-${theme.main}-500)`;
+				break;
+			default:
+				color = `var(--color-${theme.main}-300)`;
 		}
 
 		return css`
@@ -151,17 +143,13 @@ export const StyledButtonTertiary = styled.button.attrs<StyledButtonProps>(
 		let color, hoverColor, activeColor;
 
 		switch (state) {
-			case 'loading':
-				color = 'var(--color-gray-100)';
-				hoverColor = 'var(--color-gray-200)';
-				break;
-			case 'disabled':
-				color = 'var(--color-gray-100)';
-				hoverColor = 'var(--color-gray-200)';
-				break;
-			default:
+			case 'normal':
 				hoverColor = 'var(--color-gray-200)';
 				activeColor = 'var(--color-gray-300)';
+				break;
+			default:
+				color = 'var(--color-gray-100)';
+				hoverColor = 'var(--color-gray-200)';
 		}
 
 		return css`
