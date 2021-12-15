@@ -208,8 +208,8 @@ interface TextContainerProps {
 }
 
 const TextContainer = styled.span<TextContainerProps>`
-	margin-left: ${props => (props.leftSpacing ? 'var(--space-md)' : '0')};
-	margin-right: ${props => (props.rightSpacing ? 'var(--space-md)' : '0')};
+	margin-left: ${props => (props.leftSpacing ? 'var(--space-2)' : '0')};
+	margin-right: ${props => (props.rightSpacing ? 'var(--space-2)' : '0')};
 `;
 
 const Button: React.FC<
