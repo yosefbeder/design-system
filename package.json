@@ -138,8 +138,5 @@
 				"./dist/cjs/types.d.ts"
 			]
 		}
-	},
-	"dependencies": {
-		"uuid": "^8.3.2"
 	}
 }

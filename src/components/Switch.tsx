@@ -1,6 +1,6 @@
 import React from 'react';
 import styled, { StyledComponentProps } from 'styled-components';
-import { v4 } from 'uuid';
+import { uuid } from '../utils';
 import { defaultTheme } from '../constants';
 import { P1 } from '../typography';
 
@@ -118,7 +118,7 @@ const Switch = React.forwardRef<
 		'type'
 	> & { label: string }
 >(({ children, label, className, id, ...props }, ref) => {
-	const randomId = v4();
+	const randomId = uuid();
 
 	return (
 		<Container className={className}>

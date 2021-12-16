@@ -1,5 +1,5 @@
 import React from 'react';
-import { v4 } from 'uuid';
+import { uuid } from '../utils';
 import Radio from './Radio';
 
 interface RadioGroupProps {
@@ -16,7 +16,7 @@ interface RadioGroupProps {
 }
 
 const RadioGroup = React.forwardRef<HTMLDivElement, RadioGroupProps>(
-	({ name = v4(), className, options, value, onChange }, ref) => {
+	({ name = uuid(), className, options, value, onChange }, ref) => {
 		return (
 			<div
 				role="radiogroup"
