@@ -1,4 +1,5 @@
 import styled, { css } from 'styled-components';
+import { defaultTheme } from '../constants';
 
 interface NavLinkProps {
 	navigatedTo?: boolean;
@@ -17,20 +18,22 @@ const NavLink = styled.a<NavLinkProps>`
 		props.navigatedTo
 			? css`
 					font-weight: 600;
-					color: var(--color-gray-800);
+					color: var(--color-${props => props.theme.color.neutral}-800);
 			  `
 			: ''}
 
 	&:hover,
 	&:focus {
-		background-color: var(--color-gray-200);
-		border-color: var(--color-gray-200);
+		background-color: var(--color-${props => props.theme.color.neutral}-200);
+		border-color: var(--color-${props => props.theme.color.neutral}-200);
 	}
 
 	&:active {
-		background-color: var(--color-gray-300);
-		border-color: var(--color-gray-300);
+		background-color: var(--color-${props => props.theme.color.neutral}-300);
+		border-color: var(--color-${props => props.theme.color.neutral}-300);
 	}
 `;
+
+NavLink.defaultProps = { theme: defaultTheme };
 
 export default NavLink;

@@ -1,4 +1,5 @@
 import styled, { css } from 'styled-components';
+import { defaultTheme } from './constants';
 
 interface MarginProps {
 	size?: string;
@@ -14,7 +15,7 @@ const HSharedStyles = css`
 	font-family: var(--font-sans);
 	line-height: 1.25;
 	font-weight: 900;
-	color: var(--color-gray-900);
+	color: var(--color-${props => props.theme.color.neutral}-900);
 `;
 
 export const H1 = styled.h1`
@@ -23,11 +24,15 @@ export const H1 = styled.h1`
 	font-size: var(--font-4xl);
 `;
 
+H1.defaultProps = { theme: defaultTheme };
+
 export const H2 = styled.h2`
 	${HSharedStyles}
 	${margin('4')}
 	font-size: var(--font-3xl);
 `;
+
+H2.defaultProps = { theme: defaultTheme };
 
 export const H3 = styled.h3`
 	${HSharedStyles}
@@ -35,11 +40,15 @@ export const H3 = styled.h3`
 	font-size: var(--font-2xl);
 `;
 
+H3.defaultProps = { theme: defaultTheme };
+
 export const H4 = styled.h4`
 	${HSharedStyles}
 	${margin()}
 	font-size: var(--font-xl);
 `;
+
+H4.defaultProps = { theme: defaultTheme };
 
 export const H5 = styled.h5`
 	${HSharedStyles}
@@ -47,11 +56,15 @@ export const H5 = styled.h5`
 	font-size: var(--font-lg);
 `;
 
+H5.defaultProps = { theme: defaultTheme };
+
 export const H6 = styled.h6`
 	${HSharedStyles}
 	${margin()}
 	font-size: var(--font-md);
 `;
+
+H6.defaultProps = { theme: defaultTheme };
 
 const PSharedStyles = css`
 	${margin()}
@@ -66,8 +79,10 @@ export const P1 = styled.p`
 export const P2 = styled.p`
 	${PSharedStyles}
 	font-size: var(--font-sm);
-	color: var(--color-gray-600);
+	color: var(--color-${props => props.theme.color.neutral}-600);
 `;
+
+P2.defaultProps = { theme: defaultTheme };
 
 const LSharedStyles = css`
 	${margin()};
@@ -88,30 +103,28 @@ export const Ol = styled.ol`
 `;
 
 export const Link = styled.a`
-	color: var(--color-${props => props.theme.main}-400);
+	color: var(--color-${props => props.theme.color.accent}-400);
 	text-decoration: underline;
 	transition: color 100ms;
 
 	&:hover,
 	&:focus {
-		color: var(--color-${props => props.theme.main}-500);
+		color: var(--color-${props => props.theme.color.accent}-500);
 	}
 
 	&:active {
-		color: var(--color-${props => props.theme.main}-600);
+		color: var(--color-${props => props.theme.color.accent}-600);
 	}
 `;
 
-Link.defaultProps = {
-	theme: {
-		main: 'blue',
-	},
-};
+Link.defaultProps = { theme: defaultTheme };
 
 export const Strong = styled.strong`
 	font-weight: 600;
-	color: var(--color-gray-800);
+	color: var(--color-${props => props.theme.color.neutral}-800);
 `;
+
+Strong.defaultProps = { theme: defaultTheme };
 
 export const Italic = styled.em`
 	font-style: italic;
@@ -119,7 +132,7 @@ export const Italic = styled.em`
 `;
 
 export const InlineCode = styled.code`
-	background-color: var(--color-${props => props.theme.main}-200);
+	background-color: var(--color-${props => props.theme.color.accent}-200);
 	font-family: var(--font-mono);
 
 	&::before,
@@ -129,22 +142,20 @@ export const InlineCode = styled.code`
 `;
 
 InlineCode.defaultProps = {
-	theme: {
-		main: 'blue',
-	},
+	theme: defaultTheme,
 };
 
 export const Blockquote = styled.blockquote`
 	position: relative;
 
 	display: flex;
-	background-color: var(--color-${props => props.theme.main}-100);
+	background-color: var(--color-${props => props.theme.color.accent}-100);
 	${margin()}
 	padding: var(--space-3-5) var(--space-10);
 	border-radius: var(--rounded);
 	quotes: '“' '”';
 
-	color: var(--color-gray-800);
+	color: var(--color-${props => props.theme.color.neutral}-800);
 
 	overflow: hidden;
 
@@ -155,7 +166,7 @@ export const Blockquote = styled.blockquote`
 
 	&::before {
 		content: open-quote;
-		color: var(--color-${props => props.theme.main}-200);
+		color: var(--color-${props => props.theme.color.accent}-200);
 		position: absolute;
 		top: calc(var(--space-5) * -1);
 		left: calc(var(--space-2-5) * -1);
@@ -166,7 +177,5 @@ export const Blockquote = styled.blockquote`
 `;
 
 Blockquote.defaultProps = {
-	theme: {
-		main: 'blue',
-	},
+	theme: defaultTheme,
 };

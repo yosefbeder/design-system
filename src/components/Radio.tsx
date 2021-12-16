@@ -2,6 +2,7 @@ import React from 'react';
 import styled, { StyledComponentProps } from 'styled-components';
 import { P1 } from '../typography';
 import { v4 } from 'uuid';
+import { defaultTheme } from '../constants';
 
 const Icon = styled.div`
 	position: absolute;
@@ -22,46 +23,44 @@ const Input = styled.input.attrs(() => ({ type: 'radio' }))`
 	width: var(--size);
 	height: var(--size);
 	border-radius: var(--rounded-full);
-	border: 1px solid var(--color-gray-200);
+	border: 1px solid var(--color-${props => props.theme.color.neutral}-200);
 	background-color: var(--color-white);
 
 	transition: border-color 100ms, background-color 100ms;
 	cursor: pointer;
 
 	&:hover {
-		border-color: var(--color-gray-400);
+		border-color: var(--color-${props => props.theme.color.neutral}-400);
 	}
 
 	&:checked {
-		background-color: var(--color-${props => props.theme.main}-400);
-		border-color: var(--color-${props => props.theme.main}-400);
+		background-color: var(--color-${props => props.theme.color.accent}-400);
+		border-color: var(--color-${props => props.theme.color.accent}-400);
 	}
 
 	&:enabled:active,
 	&:focus {
-		border-color: var(--color-${props => props.theme.main}-400);
-		box-shadow: 0 0 0 2px var(--color-${props => props.theme.main}-200);
+		border-color: var(--color-${props => props.theme.color.accent}-400);
+		box-shadow: 0 0 0 2px var(--color-${props => props.theme.color.accent}-200);
 	}
 
 	&:disabled {
 		cursor: not-allowed;
-		background-color: var(--color-gray-100);
+		background-color: var(--color-${props => props.theme.color.neutral}-100);
 	}
 
 	&:disabled + ${Icon} {
-		background-color: var(--color-gray-100);
+		background-color: var(--color-${props => props.theme.color.neutral}-100);
 	}
 
 	&:disabled:checked {
-		background-color: var(--color-gray-400);
-		border-color: var(--color-gray-400);
+		background-color: var(--color-${props => props.theme.color.neutral}-400);
+		border-color: var(--color-${props => props.theme.color.neutral}-400);
 	}
 `;
 
 Input.defaultProps = {
-	theme: {
-		main: 'blue',
-	},
+	theme: defaultTheme,
 };
 
 export const InputContainer = styled.div`

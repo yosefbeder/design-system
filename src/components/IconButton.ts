@@ -1,4 +1,5 @@
 import styled, { css } from 'styled-components';
+import { defaultTheme } from '../constants';
 
 interface IconButtonProps {
 	loading?: boolean;
@@ -17,7 +18,7 @@ const IconButton = styled.button.attrs<IconButtonProps>(props => ({
 	border-radius: var(--rounded);
 
 	&:hover {
-		background-color: var(--color-gray-200);
+		background-color: var(--color-${props => props.theme.color.neutral}-200);
 	}
 
 	${props =>
@@ -25,25 +26,31 @@ const IconButton = styled.button.attrs<IconButtonProps>(props => ({
 		!props.disabled &&
 		css`
 			&:focus {
-				background-color: var(--color-gray-200);
+				background-color: var(
+					--color-${props => props.theme.color.neutral}-200
+				);
 			}
 
 			&:active {
-				background-color: var(--color-gray-300);
+				background-color: var(
+					--color-${props => props.theme.color.neutral}-300
+				);
 			}
 		`}
 
 	&:disabled {
-		background-color: var(--color-gray-100);
-		color: var(--color-gray-400);
+		background-color: var(--color-${props => props.theme.color.neutral}-100);
+		color: var(--color-${props => props.theme.color.neutral}-400);
 		cursor: not-allowed;
 	}
 
 	&:hover:disabled {
-		background-color: var(--color-gray-200);
+		background-color: var(--color-${props => props.theme.color.neutral}-200);
 	}
 
 	transition: background-color 100ms;
 `;
+
+IconButton.defaultProps = { theme: defaultTheme };
 
 export default IconButton;

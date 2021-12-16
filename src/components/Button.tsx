@@ -1,5 +1,6 @@
 import React from 'react';
 import styled, { css, StyledComponentProps } from 'styled-components';
+import { defaultTheme } from '../constants';
 import LoadingSpinner from './LoadingSpinner';
 
 interface StyledButtonProps {
@@ -33,13 +34,13 @@ export const StyledButtonPrimary = styled.button.attrs<StyledButtonProps>(
 
 		switch (state) {
 			case 'normal':
-				color = `var(--color-${theme.main}-400)`;
-				hoverColor = `var(--color-${theme.main}-500)`;
-				activeColor = `var(--color-${theme.main}-600)`;
+				color = `var(--color-${theme.color.accent}-400)`;
+				hoverColor = `var(--color-${theme.color.accent}-500)`;
+				activeColor = `var(--color-${theme.color.accent}-600)`;
 				break;
 			default:
-				color = `var(--color-${theme.main}-300)`;
-				hoverColor = `var(--color-${theme.main}-400)`;
+				color = `var(--color-${theme.color.accent}-300)`;
+				hoverColor = `var(--color-${theme.color.accent}-400)`;
 		}
 
 		return css`
@@ -69,9 +70,7 @@ export const StyledButtonPrimary = styled.button.attrs<StyledButtonProps>(
 `;
 
 StyledButtonPrimary.defaultProps = {
-	theme: {
-		main: 'blue',
-	},
+	theme: defaultTheme,
 };
 
 export const StyledButtonSecondary = styled.button.attrs<StyledButtonProps>(
@@ -90,11 +89,11 @@ export const StyledButtonSecondary = styled.button.attrs<StyledButtonProps>(
 
 		switch (state) {
 			case 'normal':
-				color = `var(--color-${theme.main}-400)`;
-				activeColor = `var(--color-${theme.main}-500)`;
+				color = `var(--color-${theme.color.accent}-400)`;
+				activeColor = `var(--color-${theme.color.accent}-500)`;
 				break;
 			default:
-				color = `var(--color-${theme.main}-300)`;
+				color = `var(--color-${theme.color.accent}-300)`;
 		}
 
 		return css`
@@ -124,9 +123,7 @@ export const StyledButtonSecondary = styled.button.attrs<StyledButtonProps>(
 `;
 
 StyledButtonSecondary.defaultProps = {
-	theme: {
-		main: 'blue',
-	},
+	theme: defaultTheme,
 };
 
 export const StyledButtonTertiary = styled.button.attrs<StyledButtonProps>(
@@ -138,21 +135,23 @@ export const StyledButtonTertiary = styled.button.attrs<StyledButtonProps>(
 
 	border: 2px solid transparent;
 
-	${({ loading, disabled }) => {
+	${({ loading, disabled, theme }) => {
 		const state = getState(loading, disabled);
 		let color, hoverColor, activeColor;
 
 		switch (state) {
 			case 'normal':
-				hoverColor = 'var(--color-gray-200)';
-				activeColor = 'var(--color-gray-300)';
+				hoverColor = `var(--color-${theme.color.neutral}-200)`;
+				activeColor = `var(--color-${theme.color.neutral}-300)`;
 				break;
 			default:
-				color = 'var(--color-gray-100)';
-				hoverColor = 'var(--color-gray-200)';
+				color = `var(--color-${theme.color.neutral}-100)`;
+				hoverColor = `var(--color-${theme.color.neutral}-200)`;
 		}
 
 		return css`
+			color: var(--color-${props => props.theme.color.neutral}-700);
+
 			&:hover {
 				background-color: ${hoverColor};
 				border-color: ${hoverColor};
@@ -179,27 +178,23 @@ export const StyledButtonTertiary = styled.button.attrs<StyledButtonProps>(
 	}}
 `;
 
+StyledButtonTertiary.defaultProps = {
+	theme: defaultTheme,
+};
+
 export const PrimaryLoadingSpinner = styled(LoadingSpinner)`
-	border: 2px solid var(--color-${props => props.theme.main}-200);
+	border: 2px solid var(--color-${props => props.theme.color.accent}-200);
 	border-left: 2px solid var(--color-white);
 `;
 
-PrimaryLoadingSpinner.defaultProps = {
-	theme: { main: 'blue' },
-};
-
 export const SecondaryLoadingSpinner = styled(LoadingSpinner)`
-	border: 2px solid var(--color-${props => props.theme.main}-200);
-	border-left: 2px solid var(--color-${props => props.theme.main}-400);
+	border: 2px solid var(--color-${props => props.theme.color.accent}-200);
+	border-left: 2px solid var(--color-${props => props.theme.color.accent}-400);
 `;
-
-SecondaryLoadingSpinner.defaultProps = {
-	theme: { main: 'blue' },
-};
 
 export const TertiaryLoadingSpinner = styled(LoadingSpinner)`
 	border: 2px solid var(--color-white);
-	border-left: 2px solid var(--color-gray-400);
+	border-left: 2px solid var(--color-${props => props.theme.color.neutral}-400);
 `;
 
 type ButtonVariant = 'primary' | 'secondary' | 'tertiary';

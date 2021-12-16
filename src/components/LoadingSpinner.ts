@@ -1,4 +1,5 @@
 import styled, { keyframes } from 'styled-components';
+import { defaultTheme } from '../constants';
 
 const spin = keyframes`
   to {
@@ -13,5 +14,9 @@ const LoadingSpinner = styled.div`
 	border-radius: var(--rounded-full);
 	animation: ${spin} 1s linear infinite;
 `;
+
+LoadingSpinner.defaultProps = {
+	theme: defaultTheme,
+};
 
 export default LoadingSpinner;

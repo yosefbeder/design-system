@@ -1,5 +1,6 @@
 import React, { useRef, useState } from 'react';
 import styled, { css } from 'styled-components';
+import { defaultTheme } from '../constants';
 import { P2 } from '../typography';
 
 const Container = styled.div`
@@ -48,17 +49,19 @@ const Component = styled(P2)<ComponentProps>`
 	margin: 0;
 	padding: var(--space-1) var(--space-2);
 	border-radius: var(--rounded);
-	background-color: var(--color-gray-600);
+	background-color: var(--color-${props => props.theme.color.neutral}-600);
 
 	pointer-events: none;
 
 	white-space: nowrap;
 	line-height: 1;
-	color: var(--color-gray-100);
+	color: var(--color-${props => props.theme.color.neutral}-100);
 
 	opacity: ${props => (props.isShown ? '1' : '0')};
 	transition: 100ms opacity;
 `;
+
+Component.defaultProps = { theme: defaultTheme };
 
 interface TooltipProps {
 	content: string;

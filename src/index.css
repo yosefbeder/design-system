@@ -1,47 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Azeret+Mono:wght@100;200;300;400;500;600;700;800;900&family=Inter:wght@100;200;300;400;500;600;700;800;900&family=Merriweather:ital,wght@0,300;0,400;0,700;0,900;1,300;1,400;1,700;1,900&display=swap');
 
-/* CSS RESET */
-
-*:where(:not(iframe, canvas, img, svg, video, ol, ul):not(svg *)) {
-	all: unset;
-	display: revert;
-}
-
-*,
-*::before,
-*::after {
-	box-sizing: border-box;
-}
-
-img {
-	max-width: 100%;
-}
-
-table {
-	border-collapse: collapse;
-}
-
-textarea {
-	white-space: revert;
-}
-
-a,
-button {
-	cursor: pointer;
-}
-
-ol,
-ul {
-	margin: 0;
-	padding: 0;
-}
-
-pre {
-	white-space: pre;
-}
-
 :root {
-	/* COLORS */
+	/* DEFAULT COLORS */
 
 	--color-white: #fff;
 	--color-gray-50: #f9fafb;
@@ -54,6 +14,17 @@ pre {
 	--color-gray-700: #374151;
 	--color-gray-800: #1f2937;
 	--color-gray-900: #111827;
+
+	--color-blue-50: #eff6ff;
+	--color-blue-100: #dbeafe;
+	--color-blue-200: #bfdbfe;
+	--color-blue-300: #93c5fd;
+	--color-blue-400: #60a5fa;
+	--color-blue-500: #3b82f6;
+	--color-blue-600: #2563eb;
+	--color-blue-700: #1d4ed8;
+	--color-blue-800: #1e40af;
+	--color-blue-900: #1e3a8a;
 
 	/* FONTS SIZES*/
 
@@ -148,10 +119,4 @@ pre {
 	--shadow-xl: 0 20px 25px -5px rgb(0 0 0 / 0.1),
 		0 8px 10px -6px rgb(0 0 0 / 0.1);
 	--shadow-2xl: 0 25px 50px -12px rgb(0 0 0 / 0.25);
-}
-
-body {
-	font-family: var(--font-serif);
-	font-size: var(--font-base);
-	color: var(--color-gray-700);
 }

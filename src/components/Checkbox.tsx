@@ -3,6 +3,7 @@ import styled, { StyledComponentProps } from 'styled-components';
 import { Check as CheckIcon } from '../icons';
 import { P1 } from '../typography';
 import { v4 } from 'uuid';
+import { defaultTheme } from '../constants';
 
 export const Icon = styled(CheckIcon)`
 	position: absolute;
@@ -21,48 +22,46 @@ export const Input = styled.input.attrs(() => ({ type: 'checkbox' }))`
 	height: var(--size);
 	background-color: var(--color-white);
 	border-radius: var(--rounded);
-	border: 1px solid var(--color-gray-200);
+	border: 1px solid var(--color-${props => props.theme.color.neutral}-200);
 	transition: border-color 100ms, background-color 100ms, box-shadow 100ms;
 	cursor: pointer;
 
 	&:disabled {
 		cursor: not-allowed;
-		background-color: var(--color-gray-100);
+		background-color: var(--color-${props => props.theme.color.neutral}-100);
 	}
 
 	&:disabled + ${Icon} {
-		color: var(--color-gray-100);
+		color: var(--color-${props => props.theme.color.neutral}-100);
 	}
 
 	&:hover {
-		border-color: var(--color-gray-400);
+		border-color: var(--color-${props => props.theme.color.neutral}-400);
 	}
 
 	&:enabled:active,
 	&:focus {
-		border-color: var(--color-${props => props.theme.main}-400);
-		box-shadow: 0 0 0 2px var(--color-${props => props.theme.main}-200);
+		border-color: var(--color-${props => props.theme.color.accent}-400);
+		box-shadow: 0 0 0 2px var(--color-${props => props.theme.color.accent}-200);
 	}
 
 	&:checked {
-		background-color: var(--color-${props => props.theme.main}-400);
-		border-color: var(--color-${props => props.theme.main}-400);
+		background-color: var(--color-${props => props.theme.color.accent}-400);
+		border-color: var(--color-${props => props.theme.color.accent}-400);
 	}
 
 	&:disabled:active {
-		box-shadow: 0 0 0 2px var(--color-gray-200);
+		box-shadow: 0 0 0 2px var(--color-${props => props.theme.color.neutral}-200);
 	}
 
 	&:disabled:checked {
-		background-color: var(--color-gray-400);
-		border-color: var(--color-gray-400);
+		background-color: var(--color-${props => props.theme.color.neutral}-400);
+		border-color: var(--color-${props => props.theme.color.neutral}-400);
 	}
 `;
 
 Input.defaultProps = {
-	theme: {
-		main: 'blue',
-	},
+	theme: defaultTheme,
 };
 
 export const InputContainer = styled.div`
