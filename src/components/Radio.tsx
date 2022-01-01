@@ -1,8 +1,7 @@
 import React from 'react';
 import styled, { StyledComponentProps } from 'styled-components';
 import { P1 } from '../typography';
-import { uuid } from '../utils';
-import { defaultTheme } from '../constants';
+import { v4 } from 'uuid';
 
 const Icon = styled.div`
 	position: absolute;
@@ -23,45 +22,41 @@ const Input = styled.input.attrs(() => ({ type: 'radio' }))`
 	width: var(--size);
 	height: var(--size);
 	border-radius: var(--rounded-full);
-	border: 1px solid var(--color-${props => props.theme.color.neutral}-200);
+	border: 1px solid var(--color-gray-200);
 	background-color: var(--color-white);
 
 	transition: border-color 100ms, background-color 100ms;
 	cursor: pointer;
 
 	&:hover {
-		border-color: var(--color-${props => props.theme.color.neutral}-400);
+		border-color: var(--color-gray-400);
 	}
 
 	&:checked {
-		background-color: var(--color-${props => props.theme.color.accent}-400);
-		border-color: var(--color-${props => props.theme.color.accent}-400);
+		background-color: var(--color-blue-400);
+		border-color: var(--color-blue-400);
 	}
 
 	&:enabled:active,
 	&:focus {
-		border-color: var(--color-${props => props.theme.color.accent}-400);
-		box-shadow: 0 0 0 2px var(--color-${props => props.theme.color.accent}-200);
+		border-color: var(--color-blue-400);
+		box-shadow: 0 0 0 2px var(--color-blue-200);
 	}
 
 	&:disabled {
 		cursor: not-allowed;
-		background-color: var(--color-${props => props.theme.color.neutral}-100);
+		background-color: var(--color-gray-100);
 	}
 
 	&:disabled + ${Icon} {
-		background-color: var(--color-${props => props.theme.color.neutral}-100);
+		background-color: var(--color-gray-100);
 	}
 
 	&:disabled:checked {
-		background-color: var(--color-${props => props.theme.color.neutral}-400);
-		border-color: var(--color-${props => props.theme.color.neutral}-400);
+		background-color: var(--color-gray-400);
+		border-color: var(--color-gray-400);
 	}
 `;
-
-Input.defaultProps = {
-	theme: defaultTheme,
-};
 
 export const InputContainer = styled.div`
 	--padding: var(--space-1);
@@ -96,7 +91,7 @@ const Radio = React.forwardRef<
 		'type'
 	> & { label: string }
 >(({ children, label, className, id, ...props }, ref) => {
-	const randomId = uuid();
+	const randomId = v4();
 
 	return (
 		<Container className={className}>

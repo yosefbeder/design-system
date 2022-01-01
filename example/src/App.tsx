@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
 import styled from 'styled-components';
-
+import '../../src/index.css';
+import '../../src/colors/blue.css';
 import {
 	H1,
 	H2,
@@ -51,14 +52,14 @@ const Article = styled.article`
 
 const ButtonsGroup = styled.div`
 	display: flex;
-	gap: var(--space-2);
+	gap: var(--space-1);
 	margin: var(--space-2) 0;
 `;
 
 const InputsGroup = styled.div`
 	display: flex;
-	gap: var(--space-2);
-	max-width: calc(30rem + var(--space-2));
+	gap: var(--space-1);
+	max-width: calc(30rem + var(--space-1));
 	margin: var(--space-2) 0;
 `;
 

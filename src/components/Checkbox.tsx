@@ -2,8 +2,7 @@ import React from 'react';
 import styled, { StyledComponentProps } from 'styled-components';
 import { Check as CheckIcon } from '../icons';
 import { P1 } from '../typography';
-import { uuid } from '../utils';
-import { defaultTheme } from '../constants';
+import { v4 } from 'uuid';
 
 export const Icon = styled(CheckIcon)`
 	position: absolute;
@@ -22,47 +21,43 @@ export const Input = styled.input.attrs(() => ({ type: 'checkbox' }))`
 	height: var(--size);
 	background-color: var(--color-white);
 	border-radius: var(--rounded);
-	border: 1px solid var(--color-${props => props.theme.color.neutral}-200);
+	border: 1px solid var(--color-gray-200);
 	transition: border-color 100ms, background-color 100ms, box-shadow 100ms;
 	cursor: pointer;
 
 	&:disabled {
 		cursor: not-allowed;
-		background-color: var(--color-${props => props.theme.color.neutral}-100);
+		background-color: var(--color-gray-100);
 	}
 
 	&:disabled + ${Icon} {
-		color: var(--color-${props => props.theme.color.neutral}-100);
+		color: var(--color-gray-100);
 	}
 
 	&:hover {
-		border-color: var(--color-${props => props.theme.color.neutral}-400);
+		border-color: var(--color-gray-400);
 	}
 
 	&:enabled:active,
 	&:focus {
-		border-color: var(--color-${props => props.theme.color.accent}-400);
-		box-shadow: 0 0 0 2px var(--color-${props => props.theme.color.accent}-200);
+		border-color: var(--color-blue-400);
+		box-shadow: 0 0 0 2px var(--color-blue-200);
 	}
 
 	&:checked {
-		background-color: var(--color-${props => props.theme.color.accent}-400);
-		border-color: var(--color-${props => props.theme.color.accent}-400);
+		background-color: var(--color-blue-400);
+		border-color: var(--color-blue-400);
 	}
 
 	&:disabled:active {
-		box-shadow: 0 0 0 2px var(--color-${props => props.theme.color.neutral}-200);
+		box-shadow: 0 0 0 2px var(--color-gray-200);
 	}
 
 	&:disabled:checked {
-		background-color: var(--color-${props => props.theme.color.neutral}-400);
-		border-color: var(--color-${props => props.theme.color.neutral}-400);
+		background-color: var(--color-gray-400);
+		border-color: var(--color-gray-400);
 	}
 `;
-
-Input.defaultProps = {
-	theme: defaultTheme,
-};
 
 export const InputContainer = styled.div`
 	--size: 1.125rem;
@@ -96,7 +91,7 @@ const Checkbox = React.forwardRef<
 		'type'
 	> & { label: string }
 >(({ children, label, className, id, ...props }, ref) => {
-	const randomId = uuid();
+	const randomId = v4();
 
 	return (
 		<Container className={className}>

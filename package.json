@@ -73,7 +73,6 @@
 		"typescript": "^4.5.2"
 	},
 	"exports": {
-		"./css-reset.css": "./dist/cjs/css-reset.css.js",
 		"./typography": "./dist/cjs/typography.js",
 		"./components": "./dist/cjs/components/index.js",
 		"./components/Button": "./dist/cjs/components/Button.js",
@@ -107,9 +106,6 @@
 	},
 	"typesVersions": {
 		"*": {
-			"css-reset.css": [
-				"./dist/cjs/css-reset.css.d.ts"
-			],
 			"typography": [
 				"./dist/cjs/typography.d.ts"
 			],
@@ -133,9 +129,6 @@
 			],
 			"utils/with-id": [
 				"./dist/cjs/utils/with-id.d.ts"
-			],
-			"types": [
-				"./dist/cjs/types.d.ts"
 			]
 		}
 	}

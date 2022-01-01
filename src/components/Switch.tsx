@@ -1,7 +1,6 @@
 import React from 'react';
 import styled, { StyledComponentProps } from 'styled-components';
-import { uuid } from '../utils';
-import { defaultTheme } from '../constants';
+import { v4 } from 'uuid';
 import { P1 } from '../typography';
 
 export const Icon = styled.div`
@@ -28,47 +27,47 @@ export const Input = styled.input.attrs(() => ({
 	width: var(--width);
 	height: var(--height);
 	border-radius: var(--rounded-full);
-	background-color: var(--color-${props => props.theme.color.neutral}-200);
-	border: 1px solid var(--color-${props => props.theme.color.neutral}-200);
+	background-color: var(--color-gray-200);
+	border: 1px solid var(--color-gray-200);
 	transition: background-color 100ms, border-color 100ms;
 	cursor: pointer;
 
 	&:hover,
 	&:focus {
-		background-color: var(--color-${props => props.theme.color.neutral}-300);
-		border-color: var(--color-${props => props.theme.color.neutral}-300);
+		background-color: var(--color-gray-300);
+		border-color: var(--color-gray-300);
 	}
 
 	&:checked {
-		background-color: var(--color-${props => props.theme.color.accent}-400);
-		border-color: var(--color-${props => props.theme.color.accent}-400);
+		background-color: var(--color-blue-400);
+		border-color: var(--color-blue-400);
 	}
 
 	&:checked:hover,
 	&:checked:focus {
-		background-color: var(--color-${props => props.theme.color.accent}-500);
-		border-color: var(--color-${props => props.theme.color.accent}-500);
+		background-color: var(--color-blue-500);
+		border-color: var(--color-blue-500);
 	}
 
 	&:disabled {
-		background-color: var(--color-${props => props.theme.color.neutral}-300);
-		border-color: var(--color-${props => props.theme.color.neutral}-300);
+		background-color: var(--color-gray-300);
+		border-color: var(--color-gray-300);
 		cursor: not-allowed;
 	}
 
 	&:disabled:hover {
-		background-color: var(--color-${props => props.theme.color.neutral}-400);
-		border-color: var(--color-${props => props.theme.color.neutral}-400);
+		background-color: var(--color-gray-400);
+		border-color: var(--color-gray-400);
 	}
 
 	&:disabled:checked {
-		background-color: var(--color-${props => props.theme.color.neutral}-400);
-		border-color: var(--color-${props => props.theme.color.neutral}-400);
+		background-color: var(--color-gray-400);
+		border-color: var(--color-gray-400);
 	}
 
 	&:disabled:checked:hover {
-		background-color: var(--color-${props => props.theme.color.neutral}-500);
-		border-color: var(--color-${props => props.theme.color.neutral}-500);
+		background-color: var(--color-gray-500);
+		border-color: var(--color-gray-500);
 	}
 
 	&:checked + ${Icon} {
@@ -76,11 +75,9 @@ export const Input = styled.input.attrs(() => ({
 	}
 
 	&:disabled + ${Icon} {
-		background-color: var(--color-${props => props.theme.color.neutral}-100);
+		background-color: var(--color-gray-100);
 	}
 `;
-
-Input.defaultProps = { theme: defaultTheme };
 
 export const InputContainer = styled.div`
 	--size: 1.125rem;
@@ -118,7 +115,7 @@ const Switch = React.forwardRef<
 		'type'
 	> & { label: string }
 >(({ children, label, className, id, ...props }, ref) => {
-	const randomId = uuid();
+	const randomId = v4();
 
 	return (
 		<Container className={className}>
