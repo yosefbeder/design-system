@@ -2,6 +2,17 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [2.0.0](https://github.com/yosefbeder/design-system/compare/v1.0.0...v2.0.0) (2022-01-01)
+
+
+### ⚠ BREAKING CHANGES
+
+* neither themes nor css-reset exists anymore
+
+### Features
+
+* remove theming ([8a29d0b](https://github.com/yosefbeder/design-system/commit/8a29d0bdc6850aab14bab794d91527f2d2877d83)), closes [#7](https://github.com/yosefbeder/design-system/issues/7)
+
 ## 1.0.0 (2021-12-17)
 
 
