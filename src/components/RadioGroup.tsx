@@ -18,18 +18,16 @@ interface RadioGroupProps {
 const RadioGroup = React.forwardRef<HTMLDivElement, RadioGroupProps>(
 	({ name = v4(), className, options, value, onChange }, ref) => {
 		return (
-			<div
-				role="radiogroup"
-				className={className}
-				ref={ref}
-				onChange={e => onChange((e.target as HTMLInputElement).value)}
-			>
+			<div role="radiogroup" className={className} ref={ref}>
 				{options.map((option, index) => (
 					<Radio
 						key={index}
 						name={name}
-						defaultChecked={value === option.value}
-						{...option}
+						label={option.label}
+						value={option.value}
+						checked={value === option.value}
+						onChange={() => onChange(option.value)}
+						disabled={option.disabled}
 					/>
 				))}
 			</div>
