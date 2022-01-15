@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [2.1.0](https://github.com/yosefbeder/design-system/compare/v2.0.0...v2.1.0) (2022-01-15)
+
+
+### Features
+
+* **components:** make RadioGroup totally controlled ([eed3861](https://github.com/yosefbeder/design-system/commit/eed3861cd5b04e7c65d3ae3f74d429f29e498875))
+
 ## [2.0.0](https://github.com/yosefbeder/design-system/compare/v1.0.0...v2.0.0) (2022-01-01)
 
 
