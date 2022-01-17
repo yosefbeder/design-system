@@ -5,6 +5,7 @@ import Radio from './Radio';
 interface RadioGroupProps {
 	name?: string;
 	className?: string;
+	disabled?: boolean;
 
 	options: {
 		label: string;
@@ -16,7 +17,7 @@ interface RadioGroupProps {
 }
 
 const RadioGroup = React.forwardRef<HTMLDivElement, RadioGroupProps>(
-	({ name = v4(), className, options, value, onChange }, ref) => {
+	({ name = v4(), disabled, className, options, value, onChange }, ref) => {
 		return (
 			<div role="radiogroup" className={className} ref={ref}>
 				{options.map((option, index) => (
@@ -27,7 +28,7 @@ const RadioGroup = React.forwardRef<HTMLDivElement, RadioGroupProps>(
 						value={option.value}
 						checked={value === option.value}
 						onChange={() => onChange(option.value)}
-						disabled={option.disabled}
+						disabled={disabled || option.disabled}
 					/>
 				))}
 			</div>
