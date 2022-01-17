@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [2.2.0](https://github.com/yosefbeder/design-system/compare/v2.1.0...v2.2.0) (2022-01-17)
+
+
+### Features
+
+* **components:** add disabled prop to RadioGroup ([370d95c](https://github.com/yosefbeder/design-system/commit/370d95cbe6f9aa1226fa8ebfb4ae57e97a9f3be9))
+
 ## [2.1.0](https://github.com/yosefbeder/design-system/compare/v2.0.0...v2.1.0) (2022-01-15)
 
 
