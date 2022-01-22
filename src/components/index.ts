@@ -8,6 +8,7 @@ import Input from './Input';
 import Checkbox from './Checkbox';
 import Radio from './Radio';
 import RadioGroup from './RadioGroup';
+import Textarea from './Textarea';
 
 export {
 	Button,
@@ -20,4 +21,5 @@ export {
 	Checkbox,
 	Radio,
 	RadioGroup,
+	Textarea,
 };

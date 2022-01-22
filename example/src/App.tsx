@@ -27,6 +27,7 @@ import {
 	Checkbox,
 	Radio,
 	RadioGroup,
+	Textarea,
 } from '../../src/components';
 
 import {
@@ -289,6 +290,9 @@ function App() {
 			</InputsGroup>
 			<InputsGroup>
 				<Input type="email" placeholder="Email" />
+			</InputsGroup>
+			<InputsGroup>
+				<Textarea placeholder="Description" disabled />
 			</InputsGroup>
 			<H3WithId>Switch</H3WithId>
 			<Switch label="I agree to sell my privacy" />
