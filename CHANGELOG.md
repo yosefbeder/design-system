@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [2.3.0](https://github.com/yosefbeder/design-system/compare/v2.2.0...v2.3.0) (2022-01-22)
+
+
+### Features
+
+* **components:** add Textarea ([ae44a9a](https://github.com/yosefbeder/design-system/commit/ae44a9a481b2cd2d725580391b34920a09ebc565))
+
 ## [2.2.0](https://github.com/yosefbeder/design-system/compare/v2.1.0...v2.2.0) (2022-01-17)
 
 
