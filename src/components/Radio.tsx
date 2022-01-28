@@ -1,7 +1,7 @@
 import React from 'react';
 import styled, { StyledComponentProps } from 'styled-components';
 import { P1 } from '../typography';
-import { v4 } from 'uuid';
+import { uuid } from '../utils';
 
 const Icon = styled.div`
 	position: absolute;
@@ -91,7 +91,7 @@ const Radio = React.forwardRef<
 		'type'
 	> & { label: string }
 >(({ children, label, className, id, ...props }, ref) => {
-	const randomId = v4();
+	const randomId = uuid();
 
 	return (
 		<Container className={className}>
