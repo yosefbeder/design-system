@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [2.3.1](https://github.com/yosefbeder/design-system/compare/v2.3.0...v2.3.1) (2022-01-28)
+
+
+### Bug Fixes
+
+* **components:** add uuid locally again ([7b80050](https://github.com/yosefbeder/design-system/commit/7b80050a033b3ec8d5ee93bb20df3f83d0d233b8))
+
 ## [2.3.0](https://github.com/yosefbeder/design-system/compare/v2.2.0...v2.3.0) (2022-01-22)
 
 
