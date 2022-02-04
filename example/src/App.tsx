@@ -28,6 +28,7 @@ import {
 	Radio,
 	RadioGroup,
 	Textarea,
+	Select,
 } from '../../src/components';
 
 import {
@@ -70,10 +71,30 @@ const pages = [
 	{ path: '/about', name: 'About' },
 ];
 
+interface Option {
+	label: string;
+	value: string;
+}
+
 function App() {
 	const [favoriteFramework, setFavoriteFramework] = useState('');
 	const [favoriteMobileBrand, setFavoriteMobileBrand] = useState('');
 	const [navigated, setNavigated] = useState('/');
+	const [options1] = useState<Option[]>([
+		{
+			label: 'Yosef',
+			value: '1',
+		},
+		{
+			label: 'Mostafa',
+			value: '2',
+		},
+		{
+			label: 'Zozo',
+			value: '3',
+		},
+	]);
+	const [option1, setOption1] = useState<Option>(options1[0]);
 
 	useEffect(() => {
 		console.log(favoriteMobileBrand);
@@ -290,6 +311,14 @@ function App() {
 			</InputsGroup>
 			<InputsGroup>
 				<Input type="email" placeholder="Email" />
+			</InputsGroup>
+			<InputsGroup>
+				<Select
+					value={option1}
+					onChange={option => setOption1(option as Option)}
+					options={options1}
+				/>
+				<Select isDisabled value={option1} options={options1} />
 			</InputsGroup>
 			<InputsGroup>
 				<Textarea placeholder="Description" disabled />

@@ -130,5 +130,8 @@
 				"./dist/cjs/utils/with-id.d.ts"
 			]
 		}
+	},
+	"dependencies": {
+		"react-select": "^5.2.2"
 	}
 }
