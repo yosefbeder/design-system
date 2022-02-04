@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [2.4.0](https://github.com/yosefbeder/design-system/compare/v2.3.1...v2.4.0) (2022-02-04)
+
+
+### Features
+
+* **components:** add select ([5c1defc](https://github.com/yosefbeder/design-system/commit/5c1defc43c1809515a15e74a01e400291b30fb4e))
+
 ### [2.3.1](https://github.com/yosefbeder/design-system/compare/v2.3.0...v2.3.1) (2022-01-28)
 
 
