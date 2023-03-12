@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [2.5.0](https://github.com/yosefbeder/design-system/compare/v2.4.0...v2.5.0) (2023-03-12)
+
+
+### Features
+
+* **typography:** change serif and mono fonts ([7ee46d3](https://github.com/yosefbeder/design-system/commit/7ee46d307e6eb0c68ed5b65c1067a76eb3494b44))
+
 ## [2.4.0](https://github.com/yosefbeder/design-system/compare/v2.3.1...v2.4.0) (2022-02-04)
 
 
